@@ -83,7 +83,7 @@ notebooks/    notebooks reproducing headline tables and figures
 artifacts/    summary CSV/JSON outputs, manifests, release notes
 docs/         method overview, artifact map, changelog
 
-##Suggested reading path
+## Suggested reading path
 
 For a quick audit, start with:
 
@@ -92,7 +92,7 @@ For a quick audit, start with:
 3. the terminal 8k null summary
 4 the terminal 8k jackknife summary
 
-##Citation
+## Citation
 
 Please cite the Zenodo record for the frozen paper version:
 

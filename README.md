@@ -82,7 +82,7 @@ src/          lightweight reusable analysis code
 notebooks/    notebooks reproducing headline tables and figures
 artifacts/    summary CSV/JSON outputs, manifests, release notes
 docs/         method overview, artifact map, changelog
-
+```
 ## Suggested reading path
 
 For a quick audit, start with:

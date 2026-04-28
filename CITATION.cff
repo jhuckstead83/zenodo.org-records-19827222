@@ -8,7 +8,7 @@ authors:
     orcid: "https://orcid.org/0009-0007-0234-2177"
 repository-code: "https://github.com/jhuckstead83/zenodo.org-records-19827222"
 url: "https://github.com/jhuckstead83/zenodo.org-records-19827222"
-license: "CC-BY-4.0"
+license: "MIT"
 abstract: >
   Reproducibility front door for the seam-stitched empirical study of
   phase-locked extreme compression in adjacent Riemann zeta-zero spacing,

@@ -4,7 +4,7 @@ This repository accompanies the preprint:
 
 **Phase-Locked Extreme Compression in Adjacent Zeta-Zero Spacing: A Seam-Stitched Empirical Study Through the Full Available LMFDB Horizon**
 
-Frozen paper record on Zenodo: [https://zenodo.org/records/19827222](https://github.com/jhuckstead83/zenodo.org-records-19827222)
+Frozen paper record on Zenodo: [https://zenodo.org/records/19827222](https://zenodo.org/records/19827222)
 
 ## Overview
 

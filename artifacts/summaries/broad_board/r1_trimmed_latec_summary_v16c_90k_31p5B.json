@@ -1,0 +1,64 @@
+{
+  "chunk_label": "90k",
+  "board_path": "/content/drive/MyDrive/Colab Notebooks/ForgeV16c/df_master_bigband_checkpoint_v16c_90k_31p5B.parquet",
+  "packet_rules": {
+    "extreme_q": 0.995,
+    "min_packet_rows": 1,
+    "max_packet_rows": 8,
+    "max_packet_width_m": 0.75,
+    "use_pure_interior_only": true,
+    "exclude_near_edge": true
+  },
+  "packet_count": 2667,
+  "eligible_row_count": 535552,
+  "compression_threshold": 1.52440972908463e-05,
+  "best_candidate": "logT_over_pi_h1",
+  "best_harmonic": 1,
+  "best_resultant_r": 0.9403472845917126,
+  "best_arc80": 0.14323674557995325,
+  "rolling_windows": 64,
+  "roll_n": 120,
+  "roll_step": 40,
+  "best_b1_model": "poly_deg2",
+  "best_b1_test_mae": 1.3530812367897243e-07,
+  "best_b2_model": "poly_deg2",
+  "best_b2_test_mae": 1.1613099740872947e-11,
+  "b1_test_observed": [
+    1.0614081435356461e-05,
+    1.0545286738256902e-05
+  ],
+  "b1_test_predicted": [
+    1.0739528425997885e-05,
+    1.0690455994973424e-05
+  ],
+  "b1_test_residual": [
+    1.2544699064142342e-07,
+    1.4516925671652145e-07
+  ],
+  "b1_test_residual_sign": [
+    1.0,
+    1.0
+  ],
+  "b2_test_observed": [
+    -1.768748160749178e-10,
+    -1.7499031806224686e-10
+  ],
+  "b2_test_predicted": [
+    -1.878587439895992e-10,
+    -1.8723258962931136e-10
+  ],
+  "b2_test_residual": [
+    -1.0983927914681402e-11,
+    -1.2242271567064493e-11
+  ],
+  "b2_test_residual_sign": [
+    -1.0,
+    -1.0
+  ],
+  "out_packet": "/content/drive/MyDrive/Colab Notebooks/ForgeV16c/r1_packet_table_v16c_90k_31p5B.parquet",
+  "out_harmonic": "/content/drive/MyDrive/Colab Notebooks/ForgeV16c/r1_harmonic_table_v16c_90k_31p5B.parquet",
+  "out_rolling": "/content/drive/MyDrive/Colab Notebooks/ForgeV16c/r1_rolling_coefficients_v16c_90k_31p5B.parquet",
+  "out_b1_score": "/content/drive/MyDrive/Colab Notebooks/ForgeV16c/r1_b1_model_scores_v16c_90k_31p5B.parquet",
+  "out_b2_score": "/content/drive/MyDrive/Colab Notebooks/ForgeV16c/r1_b2_model_scores_v16c_90k_31p5B.parquet",
+  "out_plot": "/content/drive/MyDrive/Colab Notebooks/ForgeV16c/r1_trimmed_latec_plot_v16c_90k_31p5B.png"
+}

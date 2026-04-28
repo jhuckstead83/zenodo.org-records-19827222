@@ -1,0 +1,25 @@
+{
+  "chunk_label": "52k",
+  "board_path": "/content/drive/MyDrive/Colab Notebooks/ForgeV16c/df_master_bigband_checkpoint_v16c_52k_31p5B.parquet",
+  "packet_count": 4641,
+  "eligible_row_count": 931868,
+  "compression_threshold": 2.6338515655310322e-05,
+  "best_candidate": "logT_over_pi_h1",
+  "best_harmonic": 1,
+  "best_resultant_r": 0.9382260376244671,
+  "best_arc80": 0.14532725620130726,
+  "rolling_windows": 114,
+  "best_b1_model": "poly_deg2",
+  "best_b1_test_mae": 1.324918305193356e-07,
+  "best_b2_model": "poly_deg2",
+  "best_b2_test_mae": 1.1698817662588025e-11,
+  "b1_test_residual_sign": [
+    1.0,
+    1.0
+  ],
+  "b2_test_residual_sign": [
+    -1.0,
+    -1.0
+  ],
+  "out_plot": "/content/drive/MyDrive/Colab Notebooks/ForgeV16c/r1_trimmed_latec_plot_v16c_52k_31p5B.png"
+}

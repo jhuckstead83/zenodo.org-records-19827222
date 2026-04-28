@@ -1,0 +1,61 @@
+{
+  "run_tag": "resaudit_20260424_121543",
+  "chunk_size": 90000,
+  "chunk_label": "90k",
+  "rows_built": 549752,
+  "columns_built": 46,
+  "altitude_min_m": 16498.059036567287,
+  "altitude_max_m": 30610.025480841883,
+  "fitted_a": 6.283177930577359,
+  "fitted_b": 6.283347293732259e-06,
+  "rmse_pure": 0.4801702625357662,
+  "rmse_fit": 1.7046028293794699e-06,
+  "seam_targets_m": [
+    16505.0,
+    20505.0,
+    24505.0,
+    28505.0
+  ],
+  "seam_half_window_m": 5.0,
+  "seam_summaries": [
+    {
+      "seam_target_m": 16505.0,
+      "nearest_row_altitude_m": 16504.994374800528,
+      "left_mean_residual": -1.2106018701356588e-07,
+      "right_mean_residual": 1.3749599173267211e-07,
+      "residual_jump_abs": 2.58556178746238e-07,
+      "rows_in_window": 383
+    },
+    {
+      "seam_target_m": 20505.0,
+      "nearest_row_altitude_m": 20504.99709510539,
+      "left_mean_residual": -2.3053316830816134e-08,
+      "right_mean_residual": 1.1047158072889907e-08,
+      "residual_jump_abs": 3.410047490370604e-08,
+      "rows_in_window": 387
+    },
+    {
+      "seam_target_m": 24505.0,
+      "nearest_row_altitude_m": 24505.00599654769,
+      "left_mean_residual": -7.64114445523535e-08,
+      "right_mean_residual": 5.1855477148649134e-08,
+      "residual_jump_abs": 1.2826692170100264e-07,
+      "rows_in_window": 391
+    },
+    {
+      "seam_target_m": 28505.0,
+      "nearest_row_altitude_m": 28504.994095717204,
+      "left_mean_residual": -1.0318215726561116e-08,
+      "right_mean_residual": 7.147517874443874e-08,
+      "residual_jump_abs": 8.179339447099985e-08,
+      "rows_in_window": 393
+    }
+  ],
+  "pure_interior_rows": 535552,
+  "boundary_cross_rows": 6719,
+  "near_edge_rows": 14200,
+  "q1_plot_png": "/content/drive/MyDrive/Colab Notebooks/ForgeV16c/q1_bigband_continuity_plot_v16c_90k_31p5B.png",
+  "q1_summary_json": "/content/drive/MyDrive/Colab Notebooks/ForgeV16c/q1_bigband_continuity_summary_v16c_90k_31p5B.json",
+  "board_parquet": "/content/drive/MyDrive/Colab Notebooks/ForgeV16c/df_master_bigband_checkpoint_v16c_90k_31p5B.parquet",
+  "manifest_json": "/content/drive/MyDrive/Colab Notebooks/ForgeV16c/build_manifest_bigband_v16c_90k_31p5B.json"
+}

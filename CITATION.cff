@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+title: "Phase-Locked Extreme Compression in Adjacent Zeta-Zero Spacing"
+message: "If you use this repository, please cite the Zenodo record and the accompanying preprint."
+type: software
+authors:
+  - family-names: "Huckstead"
+    given-names: "Jeffery"
+    orcid: "https://orcid.org/0009-0007-0234-2177"
+repository-code: "https://github.com/jhuckstead83/zenodo.org-records-19827222"
+url: "https://github.com/jhuckstead83/zenodo.org-records-19827222"
+license: "CC-BY-4.0"
+abstract: >
+  Reproducibility front door for the seam-stitched empirical study of
+  phase-locked extreme compression in adjacent Riemann zeta-zero spacing,
+  including paper source, lightweight analysis code, and summary artifacts
+  for broad-board ablations, terminal 52k/8k/1k comparators, matched-packet
+  nulls, and jackknife robustness audits.
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Huckstead"
+      given-names: "Jeffery"
+      orcid: "https://orcid.org/0009-0007-0234-2177"
+  title: "Phase-Locked Extreme Compression in Adjacent Zeta-Zero Spacing: A Seam-Stitched Empirical Study Through the Full Available LMFDB Horizon"
+  publisher: "Zenodo"
+  doi: "10.5281/zenodo.19827222"
+  url: "https://doi.org/10.5281/zenodo.19827222"

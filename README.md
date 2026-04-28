@@ -98,7 +98,7 @@ Please cite the Zenodo record for the frozen paper version:
 
 https://zenodo.org/records/19827222
 
-Author
+Author:
 
 Jeffery Huckstead,
 Independent Researcher

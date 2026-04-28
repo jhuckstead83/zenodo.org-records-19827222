@@ -100,5 +100,5 @@ https://zenodo.org/records/19827222
 
 Author
 
-Jeffery Huckstead
+Jeffery Huckstead,
 Independent Researcher

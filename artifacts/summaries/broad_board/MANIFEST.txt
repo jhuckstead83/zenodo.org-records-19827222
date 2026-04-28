@@ -1,0 +1,23 @@
+GitHub release bundle for Zenodo 19827222
+
+Copied files:
+  artifacts/summaries/broad_board/q1_bigband_continuity_summary_v16c_130k_31p5B.json
+  artifacts/summaries/broad_board/q1_bigband_continuity_summary_v16c_90k_31p5B.json
+  artifacts/summaries/broad_board/q1_bigband_continuity_summary_v16c_70k_31p5B.json
+  artifacts/summaries/broad_board/q1_bigband_continuity_summary_v16c_52k_31p5B.json
+  artifacts/summaries/broad_board/r1_trimmed_latec_summary_v16c_130k_31p5B.json
+  artifacts/summaries/broad_board/r1_trimmed_latec_summary_v16c_90k_31p5B.json
+  artifacts/summaries/broad_board/r1_trimmed_latec_summary_v16c_70k_31p5B.json
+  artifacts/summaries/broad_board/r1_trimmed_latec_summary_v16c_52k_31p5B.json
+  artifacts/summaries/terminal/q1_terminal_continuity_summary_v16c_52000_31p5B.json
+  artifacts/summaries/terminal/q1_terminal_continuity_summary_v16c_8000_31p5B.json
+  artifacts/summaries/terminal/q1_terminal_continuity_summary_v16c_1000_31p5B.json
+  artifacts/summaries/terminal/r6_terminal_trimmed_summary_v16c_52000_31p5B.json
+  artifacts/summaries/terminal/R7_terminal_trimmed_summary_v16c_8000_31p5B.json
+  artifacts/summaries/terminal/r5_terminal_trimmed_summary_v16c_1000_31p5B.json
+  artifacts/summaries/terminal/r6_forward_predictions_v16c_52000_31p5B.csv
+  artifacts/summaries/terminal/r5_forward_predictions_v16c_1000_31p5B.csv
+  artifacts/summaries/nulls/s6_terminal8k_null_overnight_v1_summary.json
+  artifacts/summaries/nulls/s6_terminal8k_null_overnight_v1_harmonic_compare.csv
+  artifacts/summaries/nulls/s6_terminal8k_null_overnight_v1_replicates.csv
+  artifacts/summaries/jackknife/s7_jackknife_results_v16c_s7_jackknife_20260428_013009.csv

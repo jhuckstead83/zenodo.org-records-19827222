@@ -102,3 +102,5 @@ Author:
 
 Jeffery Huckstead,
 Independent Researcher
+
+Unless otherwise noted, code in this repository is released under the MIT License; citation metadata and frozen paper versions are linked through the associated Zenodo record.

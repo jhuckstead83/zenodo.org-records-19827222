@@ -19,6 +19,8 @@
 \usepackage{float}
 \usepackage{tikz}
 \usepackage{adjustbox}
+\usepackage{microtype}
+\usepackage{xcolor}
 \usetikzlibrary{shapes.geometric, arrows.meta, positioning, fit, backgrounds}
 
 % Float tuning to keep tall images from breaking pages
@@ -40,6 +42,21 @@
 }
 
 \newcommand{\preprintdoi}{10.5281/zenodo.19827222}
+
+\newcommand{\optionalfigure}[3]{%
+\begin{figure}[H]
+    \centering
+    \IfFileExists{#1}{%
+        \includegraphics[width=0.98\textwidth,
+            height=0.8\textheight,keepaspectratio]{#1}%
+    }{%
+        \fbox{\parbox[c][2.25in][c]{0.88\textwidth}{%
+            \centering Figure placeholder: \texttt{\detokenize{#1}}}}%
+    }
+    \caption{#2}
+    \label{#3}
+\end{figure}}
+
 
 \title{\textbf{Phase-Locked Extreme Compression in Adjacent Zeta-Zero Spacing:}\\
 A Seam-Stitched Empirical Study Through the Full Available LMFDB Horizon}
@@ -72,6 +89,17 @@ The empirical claim of this revision is intentionally narrower and stronger than
 \section{Introduction}
 
 The statistical behavior of adjacent spacing between zeta zeros has long been studied through bulk spacing distributions, unfolding, and random-matrix analogies. Much less attention has been paid to the rarest compression events as a distinct empirical subpopulation with their own organizing geometry. This paper studies whether such extreme compressions are merely stochastic tail realizations of the ambient spacing process or whether they exhibit stable structure when viewed in a logarithmic phase coordinate.
+
+
+The statistical behavior of adjacent spacing between zeta zeros has been
+studied extensively through bulk spacing distributions and random-matrix
+analogies~\cite{montgomery1973,odlyzko1987,bogomolny1995,mehta2004}.
+The GUE nearest-neighbor spacing distribution~\cite{mehta2004} predicts
+specific tail behavior for consecutive zero gaps; the extreme compressions
+studied here are drawn from the lower tail of this distribution, but the
+present paper asks whether they possess additional organizing structure
+beyond what the ambient GUE-type spacing process would predict.
+
 
 The phase coordinate used here is not introduced as an arbitrary search artifact. The Riemann--von Mangoldt counting scale implies a local mean spacing of order
 \[
@@ -122,16 +150,16 @@ The core answer is that the first harmonic remains dominant across all tested br
 
 \end{tikzpicture}
 \caption{Pipeline overview of the empirical instrument. Consecutive zeta-zero ordinates are decoded in shard order, stitched into a seam-preserved continuation stream, and reduced to variable-resolution boards. Packets are extracted under frozen morphology constraints, projected into logarithmic phase coordinates, and audited through local drift estimation, model-family competition, and resolution-ablation tests.}
-\label{fig:pipeline_overview}
+\label{fig:pipeline-overview}
 \end{figure}
 
-The primary data source consists of consecutive tabulated ordinates of nontrivial zeta zeros from the LMFDB horizon available at the time of analysis. Source files are decoded in shard order and assembled into a seam-preserving continuation board. Carry-state is explicitly transferred across shard boundaries so that adjacent-zero gaps crossing one file boundary into the next are preserved.
+The primary data source consists of consecutive tabulated ordinates of nontrivial zeta zeros from the LMFDB~\cite{lmfdb} horizon available at the time of analysis, supplemented by the published zero tables~\cite{odlyzko_tables}. Source files are decoded in shard order and assembled into a seam-preserving continuation board. Carry-state is explicitly transferred across shard boundaries so that adjacent-zero gaps crossing one file boundary into the next are preserved.
 
 The main broad-board study uses fixed row sizes ranging from 130k down to 52k zeros per row on the continuous 16.5B to 31.5B board. In addition, a terminal-band comparator is built on the final 28.5B to 31.5B segment at both 52k, 8K, and 1k resolution. These terminal boards are not used to redefine the packet family; rather, they are used to test whether the terminal tightening is stable when the same logic is applied on the same band at very different row sizes.
 
 \subsection{Board and audit scales}
 
-Table~\ref{tab:board_scale} records the principal board scale and the main audited regimes referenced in this revision.
+Table~\ref{tab:board-scale} records the principal board scale and the main audited regimes referenced in this revision.
 
 \begin{table}[H]
 \centering
@@ -153,31 +181,23 @@ Direct terminal-band comparator & 52k, 8K, and 1k on 28.5B to 31.5B \\
 \bottomrule
 \end{tabular}
 \caption{Scale summary for the principal continuous board and the main ablation regimes discussed in this revision.}
-\label{tab:board_scale}
+\label{tab:board-scale}
 \end{table}
 
 \subsection{Seam metadata and continuity diagnostics}
 
 Each row carries metadata indicating whether it is pure interior, crosses a file boundary, or lies near a file edge. These tags are not decorative bookkeeping. They are used to test whether observed phase structure could be explained by seam contamination or edge bias.
 
-A seam-specific continuity diagnostic is therefore part of the instrument itself (Figure~\ref{fig:seam_continuity}). The key practical result is that the continuation board does not introduce large fitted-residual jumps at the audited bridge altitudes. This remains true on the broad-board ablations and, in the terminal 1k micro-board, at the 28{,}505M bridge as well.
+A seam-specific continuity diagnostic is therefore part of the instrument itself (Figure~\ref{fig:seam-continuity}). The key practical result is that the continuation board does not introduce large fitted-residual jumps at the audited bridge altitudes. This remains true on the broad-board ablations and, in the terminal 1k micro-board, at the 28{,}505M bridge as well.
 
-\begin{figure}[H]
-\centering
-\IfFileExists{q1_gap_continuity_plot_v16c_250k_31p5B.png}{%
-    \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{q1_gap_continuity_plot_v16c_250k_31p5B.png}%
-}{%
-    \fbox{%
-        \parbox[c][2.7in][c]{0.94\textwidth}{%
-        \centering
-        \textbf{F2 Placeholder: Seam Continuity Diagnostic}\\[0.75em]
-        Global continuity plot with seam markers and residual fields.
-        }%
-    }%
-}
-\caption{Seam continuity diagnostic across the audited historical bridge points of the continuation board. The figure shows the global observed spacing field, the residual field relative to the pure spine, and the residual field relative to the fitted spine, with seam markers overlaid to verify that the seam-preserved continuation logic does not introduce visible discontinuities.}
-\label{fig:seam_continuity}
-\end{figure}
+\optionalfigure{q1_gap_continuity_plot_v16c_250k_31p5B.png}%
+{Seam continuity diagnostic across the audited historical bridge points
+of the continuation board. The figure shows the global observed spacing
+field, the residual field relative to the pure spine, and the residual
+field relative to the fitted spine, with seam markers overlaid to verify
+that the seam-preserved continuation logic does not introduce visible
+discontinuities.}%
+{fig:seam-continuity}
 
 \section{Normalization, compression score, and packet extraction}
 
@@ -203,7 +223,7 @@ Fix an upper quantile threshold $\tau$ on the eligible-row population of the com
 \[
 \mathcal{E}_\tau := \{k : X_k \ge \tau\}.
 \]
-A packet is a connected component of $\mathcal{E}_\tau$ in row-index order. The trimmed late-stage audit retains only packets satisfying frozen morphology constraints on row count, altitude width, and seam cleanliness (Table~\ref{tab:frozen_packet_family}).
+A packet is a connected component of $\mathcal{E}_\tau$ in row-index order. The trimmed late-stage audit retains only packets satisfying frozen morphology constraints on row count, altitude width, and seam cleanliness (Table~\ref{tab:frozen-packet-family}).
 
 \begin{table}[H]
 \centering
@@ -221,8 +241,14 @@ Boundary-contamination ceiling $p_{\mathrm{bnd,max}}$ & Maximum allowed fraction
 Frozen-family status & These constraints are frozen before the deepest holdout phases and then reused without downstream retuning. \\
 \bottomrule
 \end{tabular}
-\caption{Schematic definition of the frozen packet family used in the main empirical rail. Exact numerical thresholds are preserved in the associated manifests and artifact tables.}
-\label{tab:frozen_packet_family}
+\caption{Schematic definition of the frozen packet family used in the
+main empirical rail. Exact numerical thresholds for $w_{\max}$,
+$n_{\max}$, $\tau$, $\rho_{\min}$, $p_{\mathrm{int,min}}$, and
+$p_{\mathrm{bnd,max}}$ are preserved in the associated manifests and
+artifact tables deposited with the preprint package under the DOI on the
+title page. These values were frozen before the deepest holdout phases
+and were not adjusted afterward.}
+\label{tab:frozen-packet-family}
 \end{table}
 
 \section{Phase coordinates, concentration, and local continuation}
@@ -275,6 +301,14 @@ The empirical rail is staged in four logical phases:
 
 The instrument was developed through an exploratory phase, so this paper does not present a single omnibus $p$-value for the full historical search path. Instead, credibility is assigned through staged freeze points, blind continuation, stability of harmonic ordering, persistence of the small residual layer under habitat and estimator perturbations, and reproducibility of the dominant $h_1$ organization across independently rebuilt boards.
 
+
+This observational framing is consistent with the broader empirical
+tradition in zeta-zero statistics~\cite{odlyzko1987,rubinstein2005},
+which has established high-precision correspondence with GUE predictions
+in bulk statistics while leaving rare-event subpopulations comparatively
+understudied.
+
+
 The present revision therefore treats the first-harmonic phase law as the most stable empirical finding, while treating the exact continuation family as a result that has now stabilized within the trimmed protocol but is still stated as an observed-horizon empirical law rather than an asymptotic theorem.
 
 \section{Results}
@@ -282,7 +316,7 @@ The present revision therefore treats the first-harmonic phase law as the most s
 
 \subsection{Broad-board resolution ablation}
 
-Table~\ref{tab:broad_ablation} summarizes the trimmed late-stage resolution ladder on the continuous 16.5B to 31.5B board. The dominant harmonic remains $h_1$ at every tested row size, while the continuation family selected for both $b_1$ and $b_2$ remains quadratic throughout.
+Table~\ref{tab:broad-ablation} summarizes the trimmed late-stage resolution ladder on the continuous 16.5B to 31.5B board. The dominant harmonic remains $h_1$ at every tested row size, while the continuation family selected for both $b_1$ and $b_2$ remains quadratic throughout.
 
 \begin{table}[tbp]
 \centering
@@ -301,14 +335,14 @@ Table~\ref{tab:broad_ablation} summarizes the trimmed late-stage resolution ladd
 \end{tabular}
 \end{adjustbox}
 \caption{Broad-board resolution ablation on the continuous 16.5B to 31.5B seam-stitched board. Across all tested row sizes, the best harmonic remains $h_1$, and the trimmed late-stage continuation winner remains quadratic for both $b_1$ and $b_2$.}
-\label{tab:broad_ablation}
+\label{tab:broad-ablation}
 \end{table}
 
 These row sizes are not trivial divisors of one another in a way that would preserve identical packet segmentation. Changing row size changes row boundaries, edge placements, packet grouping, rolling-window placement, and seam adjacency windows. Despite those changes, the same harmonic and the same continuation family remain preferred. This makes a simple row-periodicity explanation implausible.
 
 \subsection{Terminal-band tightening}
 
-The broad-board ablation shows stability. The terminal-band comparator shows something stronger: local tightening. Table~\ref{tab:terminal_comparator} compares the same terminal 28.5B to 31.5B band at 52k, 8k, and 1k resolution.
+The broad-board ablation shows stability. The terminal-band comparator shows something stronger: local tightening. Table~\ref{tab:terminal-comparator} compares the same terminal 28.5B to 31.5B band at 52k, 8k, and 1k resolution.
 
 \begin{table}[H]
 \centering
@@ -326,7 +360,7 @@ The broad-board ablation shows stability. The terminal-band comparator shows som
 \end{tabular}
 \end{adjustbox}
 \caption{Direct terminal-band comparator on the final 28.5B to 31.5B segment. The unusually tight $h_1$ concentration persists at 52k, 8k, and 1k resolution, showing that terminal tightening is a property of the terminal band itself rather than a 1k-only artifact. The 8k board yields the smallest Arc80 and the largest resultant among the three tested terminal scales, suggesting a mesoscopic scale of maximal local coherence on the observed band. The forward values shown are the first one-step extrapolations beyond the observed edge.}
-\label{tab:terminal_comparator}
+\label{tab:terminal-comparator}
 \end{table}
 
 The three-scale terminal ladder materially sharpens the interpretation of the terminal effect. If the observed tightening were merely a coarse-board smoothing artifact, the 52k board would be expected to dominate. If it were merely a micro-resolution sharpening artifact, the 1k board would be expected to dominate. Instead, the 8k board produces the strongest concentration of the three, while all three boards retain the same best harmonic and the same continuation-family winners. This pattern suggests that the terminal packet field has a genuinely stable local phase organization on the observed horizon, with an intermediate scale of maximal coherence rather than a trivial monotone dependence on board resolution.
@@ -383,7 +417,7 @@ while packet count decreased from $9120$ to $921$. Thus the terminal 8k phase lo
 \bottomrule
 \end{tabular}
 \caption{Terminal 8k threshold and null reinforcement. The matched-packet placement null remains highly concentrated because the terminal corridor itself is narrow, but the real packet field is tighter in both resultant and Arc80. Across the tested threshold ladder, the dominant harmonic remains $h_1$ throughout.}
-\label{tab:terminal_8k_null_tau}
+\label{tab:terminal-8k-null-tau}
 \end{table}
 
 We also performed a jackknife robustness audit on the same frozen terminal 8k packet field by randomly dropping 20\% of packets and recomputing the $h_1$ concentration statistics 10{,}000 times. The resultant remained extremely stable, with mean
@@ -426,7 +460,7 @@ This shows that the terminal $h_1$ lock is systemic across the packet population
 \bottomrule
 \end{tabular}
 \caption{Terminal 8k statistical reinforcement. The real packet field is tighter than the matched-packet null and remains highly stable under aggressive packet subsampling.}
-\label{tab:terminal_8k_reinforcement}
+\label{tab:terminal-8k-reinforcement}
 \end{table}
 
 
@@ -444,6 +478,18 @@ Sparse high-altitude Odlyzko spot checks were used only as out-of-domain sidecar
 \section{Discussion}
 
 The empirical picture is now cleaner than in the longer compiled draft. The seam-stitched board behaves stably under major changes in row size. The dominant harmonic does not change. The trimmed continuation family does not change. The terminal band becomes sharply tighter, and that tightening survives an apples-to-apples comparison on the same band at three very different resolutions.
+
+
+A natural reference frame for extreme spacing compressions is the
+GUE nearest-neighbor spacing distribution~\cite{mehta2004,odlyzko1987},
+whose lower tail governs the expected rate of very small gaps. The present
+results are consistent with this framework in the sense that extreme
+compressions exist and are rare, but the phase-concentration finding
+asserts additional structure beyond what the ambient GUE tail process
+would predict. We do not claim a departure from GUE in bulk statistics;
+the claim is confined to the organizing geometry of the rarest events as
+a distinct subpopulation.
+
 
 A skeptical interpretation would be that finer row size simply over-resolves local noise. The terminal comparator cuts against that interpretation: the 52k terminal board already shows essentially the same tight locking as the 1k terminal board, while the intermediate 8k board yields the strongest concentration of the three. Another skeptical interpretation would be that the continuation family is an artifact of one arbitrary chunk size. The broad-board ladder at 130k, 90k, 70k, and 52k cuts against that interpretation as well.
 
@@ -480,7 +526,7 @@ The terminal band therefore exhibits genuine local tightening on the observed bo
 \appendix
 
 \section{Mathematical Definitions and Operators}
-\label{sec:appendix_a}
+\label{sec:appendix-a}
 
 This appendix formalizes the principal data objects and operators used in the empirical pipeline.
 
@@ -598,11 +644,18 @@ $\varepsilon_{\mathrm{term}}$ & terminal residual & terminal holdout miss / boun
 \bottomrule
 \end{tabular}
 \caption{Translation of formal mathematical notation to the principal code-facing objects in the computational pipeline.}
-\label{tab:code_mapping}
+\label{tab:code-mapping}
 \end{table}
 
 \section*{Data and Artifact Availability}
-A timestamped preprint version of this manuscript has been deposited under the DOI listed on the title page. The associated research package includes the seam-stitched observational boards, continuation manifests, audit summaries, and derived tables referenced in this paper.
+A timestamped preprint version of this manuscript has been deposited
+under the DOI listed on the title page
+(\href{https://doi.org/\preprintdoi}{\preprintdoi}).
+The associated research package includes the seam-stitched observational
+boards, continuation manifests, audit summaries, frozen packet family
+thresholds, and derived tables referenced in this paper. Zero ordinate
+data are sourced from the LMFDB~\cite{lmfdb} and the Odlyzko zero
+tables~\cite{odlyzko_tables}.
 
 \section*{Author Contributions}
 Jeffery Huckstead conceived the research program, designed the empirical pipeline, executed the computational campaign, analyzed the results, and wrote the manuscript.
@@ -611,9 +664,64 @@ Jeffery Huckstead conceived the research program, designed the empirical pipelin
 Generative AI tools were used for drafting assistance, editorial restructuring, code critique, and adversarial review of claims. All research design decisions, validation strategy, computational execution choices, interpretation, and final manuscript responsibility remain with Jeffery Huckstead.
 
 \section*{Priority Statement}
-This preprint documents the first public release of the seam-stitched empirical board, packet-extraction framework, logarithmic harmonic analysis, and resolution-ablation results reported herein.
+This preprint documents the first public release of the seam-stitched
+empirical board, packet-extraction framework, logarithmic harmonic
+analysis, and resolution-ablation results reported herein. A companion
+paper~\cite{huckstead_continuation} reports a structurally distinct
+row-sector rebound structure in the same terminal band and establishes
+its empirical orthogonality to the $h_1$ packet organization identified
+here.
 
 \bibliographystyle{plain}
-% \bibliography{references}
+
+\begin{thebibliography}{9}
+
+\bibitem{montgomery1973}
+H.~L. Montgomery,
+\emph{The pair correlation of zeros of the zeta function},
+in \emph{Analytic Number Theory}, Proc.\ Sympos.\ Pure Math., vol.~24,
+Amer.\ Math.\ Soc., Providence, RI, 1973, pp.~181--193.
+
+\bibitem{odlyzko1987}
+A.~M. Odlyzko,
+\emph{On the distribution of spacings between zeros of the zeta function},
+Math.\ Comp.\ \textbf{48} (1987), no.~177, 273--308.
+
+\bibitem{bogomolny1995}
+E.~B. Bogomolny and J.~P. Keating,
+\emph{Random matrix theory and the Riemann zeros I: three- and four-point
+correlations},
+Nonlinearity \textbf{8} (1995), no.~6, 1115--1131.
+
+\bibitem{mehta2004}
+M.~L. Mehta,
+\emph{Random Matrices},
+3rd ed., Elsevier/Academic Press, Amsterdam, 2004.
+
+\bibitem{rubinstein2005}
+M.~Rubinstein,
+\emph{Computational methods and experiments in analytic number theory},
+in \emph{Recent Perspectives in Random Matrix Theory and Number Theory},
+London Math.\ Soc.\ Lecture Note Ser., vol.~322,
+Cambridge Univ.\ Press, Cambridge, 2005, pp.~425--506.
+
+\bibitem{lmfdb}
+The LMFDB Collaboration,
+\emph{The $L$-functions and Modular Forms Database},
+\url{https://www.lmfdb.org}, 2024.
+
+\bibitem{odlyzko_tables}
+A.~M. Odlyzko,
+\emph{Tables of zeros of the Riemann zeta function},
+available at \url{http://www.dtc.umn.edu/~odlyzko/zeta_tables/},
+accessed 2024--2026.
+
+\bibitem{huckstead_continuation}
+J.~Huckstead,
+\emph{Orthogonal Row-Sector Rebound Dynamics in Terminal Zeta-Zero
+Spacing Residuals},
+preprint, 2026. [https://doi.org/10.5281/zenodo.20011657]
+
+\end{thebibliography}
 
 \end{document}

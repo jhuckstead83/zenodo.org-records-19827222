@@ -153,6 +153,17 @@ The core answer is that the first harmonic remains dominant across all tested br
 \label{fig:pipeline-overview}
 \end{figure}
 
+\paragraph{Terminal horizon convention.}
+The phrase ``full available LMFDB horizon'' refers to the complete
+available LMFDB zero sequence loaded for this campaign. The working
+download ceiling was set beyond the expected source endpoint to ensure
+complete retrieval, but the actual terminal ordinate of the available
+sequence is approximately $T=30.610\mathrm{B}$. Thus any filename or
+working label containing \texttt{31p5B} should be read as a retrieval
+ceiling rather than a data-content endpoint. No claim is made that
+source data extend to $31.5\mathrm{B}$; all empirical claims are
+finite-horizon claims on the loaded seam-stitched board.
+
 The primary data source consists of consecutive tabulated ordinates of nontrivial zeta zeros from the LMFDB~\cite{lmfdb} horizon available at the time of analysis, supplemented by the published zero tables~\cite{odlyzko_tables}. Source files are decoded in shard order and assembled into a seam-preserving continuation board. Carry-state is explicitly transferred across shard boundaries so that adjacent-zero gaps crossing one file boundary into the next are preserved.
 
 The main broad-board study uses fixed row sizes ranging from 130k down to 52k zeros per row on the continuous 16.5B to 31.5B board. In addition, a terminal-band comparator is built on the final 28.5B to 31.5B segment at both 52k, 8K, and 1k resolution. These terminal boards are not used to redefine the packet family; rather, they are used to test whether the terminal tightening is stable when the same logic is applied on the same band at very different row sizes.

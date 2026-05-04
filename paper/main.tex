@@ -17,13 +17,10 @@
 \usepackage{caption}
 \usepackage[section]{placeins}
 \usepackage{float}
-\usepackage{tikz}
 \usepackage{adjustbox}
 \usepackage{microtype}
 \usepackage{xcolor}
-\usetikzlibrary{shapes.geometric, arrows.meta, positioning, fit, backgrounds}
 
-% Float tuning to keep tall images from breaking pages
 \setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
 \setlength{\floatsep}{10pt plus 2pt minus 2pt}
 \setlength{\intextsep}{10pt plus 2pt minus 2pt}
@@ -34,6 +31,7 @@
 
 \geometry{margin=1in}
 \setstretch{1.15}
+
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
@@ -41,14 +39,20 @@
     citecolor=blue
 }
 
-\newcommand{\preprintdoi}{10.5281/zenodo.19827222}
+\newcommand{\priorpreprintdoi}{10.5281/zenodo.19827222}
+\newcommand{\terminalrows}{935{,}111}
+\newcommand{\terminalmin}{28.499547\mathrm{B}}
+\newcommand{\terminalmax}{30.610043\mathrm{B}}
+\newcommand{\primarypackets}{4{,}676}
+\newcommand{\projectionp}{0.1417165669}
+\newcommand{\piminusthree}{0.1415926536}
 
 \newcommand{\optionalfigure}[3]{%
 \begin{figure}[H]
     \centering
     \IfFileExists{#1}{%
         \includegraphics[width=0.98\textwidth,
-            height=0.8\textheight,keepaspectratio]{#1}%
+            height=0.80\textheight,keepaspectratio]{#1}%
     }{%
         \fbox{\parbox[c][2.25in][c]{0.88\textwidth}{%
             \centering Figure placeholder: \texttt{\detokenize{#1}}}}%
@@ -57,631 +61,470 @@
     \label{#3}
 \end{figure}}
 
-
-\title{\textbf{Phase-Locked Extreme Compression in Adjacent Zeta-Zero Spacing:}\\
-A Seam-Stitched Empirical Study Through the Full Available LMFDB Horizon}
+\title{\textbf{Terminal Altitude Architecture and Post-Selection Artifacts}\\
+\textbf{in Adjacent Zeta-Zero Spacing}}
 
 \author[1]{Jeffery Huckstead\,\orcidlink{0009-0007-0234-2177}}
 \affil[1]{Independent Researcher}
+
 \date{\today\\
-Preprint DOI: \href{https://doi.org/\preprintdoi}{\preprintdoi}}
+Replacement manuscript draft for the previously released phase-locking preprint\\
+Original preprint DOI: \href{https://doi.org/\priorpreprintdoi}{\priorpreprintdoi}}
 
 \begin{document}
 
 \maketitle
 
 \begin{abstract}
-We study rare extreme compressions in adjacent spacing between consecutive nontrivial zeros of the Riemann zeta function on the critical line using a seam-stitched observational board built from the full available LMFDB horizon. Raw zero data are converted into fixed-resolution local spacing summaries with explicit carry-state preservation across shard boundaries, so that adjacent-zero gaps crossing file seams are retained rather than discarded. On this board we define a fitted local spacing spine and a row-level compression score, then isolate connected packets of the most extreme compressions under frozen morphology rules.
+We re-examine extreme adjacent-spacing compression packets among Riemann zeta zeros in the terminal LMFDB band using a seam-stitched board of \terminalrows{} rows spanning approximately \(\terminalmin\) to \(\terminalmax\). Earlier exploratory projections suggested two positive structures: a narrow first-logarithmic-harmonic \(h_1\) corridor and a discrete row-sector structure centered on modulus \(1009\). Subsequent search-adjusted validation audits show that neither interpretation survives as an explanatory mechanism. The circular resultant \(R\) is reproduced or exceeded by packet-count-matched search-adjusted synthetic and permutation controls; the apparent \(h_1\)-specific Arc80 corridor is absorbed by rank-altitude and altitude-matched controls; and the \(M=1009\) sector signal fails a dense \(M=800,\ldots,1200\) search-adjusted permutation null.
 
-The principal empirical finding is that these packets are not phase-neutral. Across broad-board resolution ablations at 130k, 90k, 70k, and 52k zeros per row, the dominant organizing coordinate remains the first logarithmic harmonic
-\[
-h_1(T)=\left\{\frac{\log(T/2\pi)}{\pi}\right\},
-\]
-with stable packet concentration statistics and stable continuation-family selection in the trimmed late-stage continuation audit. In every broad-board run tested, the best continuation family for both the local drift coefficient $b_1$ and the local curvature coefficient $b_2$ was quadratic.
-
-A terminal-band comparator on the final 28.5B to 31.5B segment strengthens this picture. On that band alone, the first harmonic remains dominant at 52k, 8k, and 1k resolution, with resultant values approximately $0.999202$, $0.999315$, and $0.999165$, and Arc80 widths approximately $0.017055$, $0.015305$, and $0.015836$, respectively. Thus the terminal tightening is a property of the terminal band itself rather than a 1k-only micro-resolution artifact. Moreover, the 8k board yields the strongest concentration of the three tested terminal scales, suggesting an intermediate scale of maximal observed coherence within the terminal band rather than a trivial monotone dependence on ruler size. In the 1k terminal micro-board, the seam bridge at 28{,}505M remained small, with a fitted-residual jump of order $10^{-7}$, while trimmed late-stage continuation again selected quadratic models for both $b_1$ and $b_2$. Short forward extrapolations just beyond the observed edge remained smooth, with $b_1$ positive near $1.04\times 10^{-5}$ and $b_2$ negative near $-1.70\times 10^{-10}$.
-
-The empirical claim of this revision is intentionally narrower and stronger than in earlier drafts: rare extreme compressions organize reproducibly in the first logarithmic harmonic, this organization is stable under substantial row-size ablation, and the terminal band exhibits unusually tight local $h_1$ locking. We do not claim a closed asymptotic law beyond the observed horizon.
+The surviving empirical object is a multi-component terminal altitude architecture in the yield rate of highly compressed adjacent-spacing packets. A primary reconstructed packet population contains \(\primarypackets\) extreme compression packets. Its altitude distribution is strongly non-uniform after normalization by board-row density, with descriptive Gaussian-mixture summaries favoring a multi-component altitude model over a single-component model. Altitude-only surrogate packet sets reproduce the previously observed \(h_1\) Arc80 corridor, showing that \(h_1\) is a descriptive projection of altitude localization rather than a coordinate-specific phase resonance. The resulting claim is finite-horizon and deliberately narrower: extreme compression packets form a terminal altitude architecture, while the earlier \(h_1\) and modulus-\(1009\) structures are examples of visually compelling post-selection artifacts in high-dimensional exploratory analysis of zeta-zero spacings.
 \end{abstract}
 
-\noindent\textbf{Keywords:} Riemann zeta zeros, zero spacing, empirical phase law, logarithmic phase coordinate, extreme compression, seam stitching, blind holdout, resolution ablation
+\noindent\textbf{Keywords:} Riemann zeta zeros; adjacent zero spacing; extreme compression; terminal altitude architecture; post-selection inference; look-elsewhere effect; seam stitching; random matrix statistics; empirical number theory
 
 \section{Introduction}
 
-The statistical behavior of adjacent spacing between zeta zeros has long been studied through bulk spacing distributions, unfolding, and random-matrix analogies. Much less attention has been paid to the rarest compression events as a distinct empirical subpopulation with their own organizing geometry. This paper studies whether such extreme compressions are merely stochastic tail realizations of the ambient spacing process or whether they exhibit stable structure when viewed in a logarithmic phase coordinate.
+The local statistics of the nontrivial zeros of the Riemann zeta function have long been compared with random matrix ensembles, especially the Gaussian Unitary Ensemble (GUE) after unfolding \cite{montgomery1973,odlyzko1987,mehta2004}. These comparisons primarily concern bulk spacing statistics and correlation laws. The present work concerns a narrower empirical object: rare extreme compression events in adjacent zero spacing on a finite observed horizon.
 
-
-The statistical behavior of adjacent spacing between zeta zeros has been
-studied extensively through bulk spacing distributions and random-matrix
-analogies~\cite{montgomery1973,odlyzko1987,bogomolny1995,mehta2004}.
-The GUE nearest-neighbor spacing distribution~\cite{mehta2004} predicts
-specific tail behavior for consecutive zero gaps; the extreme compressions
-studied here are drawn from the lower tail of this distribution, but the
-present paper asks whether they possess additional organizing structure
-beyond what the ambient GUE-type spacing process would predict.
-
-
-The phase coordinate used here is not introduced as an arbitrary search artifact. The Riemann--von Mangoldt counting scale implies a local mean spacing of order
+An earlier version of this study reported that extreme compression packets appeared to organize in the first logarithmic harmonic
 \[
-\frac{2\pi}{\log(T/2\pi)},
+h_1(T)=\left\{\frac{\log(T/2\pi)}{\pi}\right\}.
 \]
-so the reciprocal density scale is logarithmic in $T$. The coordinate
+A continuation study then reported a possible row-sector structure centered on modulus \(1009\). Both interpretations were plausible exploratory descriptions, and both were supported by local nulls conditional on the chosen coordinate or modulus family. A blind-review critique correctly identified the central remaining weakness: the nulls did not fully simulate the act of searching over coordinate families, harmonic families, moduli, window sizes, and tail thresholds.
+
+This replacement manuscript reports the result of the subsequent search-adjusted validation campaign. The original \(h_1\)-specific interpretation does not survive. The \(M=1009\) row-sector interpretation does not survive. The underlying extreme-compression packet field, however, does survive. The data now support a different claim: the packets form a multi-component altitude architecture in the terminal band, and the old \(h_1\) corridor is explained as a projection of that altitude architecture through a slowly varying logarithmic coordinate.
+
+The paper therefore has two goals. First, it reports the surviving empirical structure: a terminal altitude architecture in the yield rate of highly compressed adjacent-spacing packets. Second, it documents the failure modes of two attractive but ultimately non-surviving projections: the continuous \(h_1\) phase projection and the discrete modulus-\(1009\) sector projection. The result is both an empirical finding and a methodological caution about post-selection inference in computational number theory.
+
+\subsection{What this manuscript replaces}
+
+The original preprint framed the terminal packet field as evidence for a coordinate-specific \(h_1\) phase-locking phenomenon. That language is no longer maintained. In the present manuscript:
+\begin{itemize}
+    \item the \(h_1\) coordinate is retained only as a descriptive projection;
+    \item the circular resultant \(R\) is demoted to a diagnostic statistic;
+    \item the narrow \(h_1\) Arc80 corridor is explained by altitude localization;
+    \item the modulus-\(1009\) row-sector result is rejected under dense search-adjusted controls;
+    \item the surviving positive claim is terminal altitude architecture of extreme compression packets.
+\end{itemize}
+
+\subsection{Scope}
+
+All claims are finite-horizon empirical claims on the loaded terminal board. No asymptotic theorem is claimed. No proof or disproof of the Riemann Hypothesis is claimed. The work assumes the tabulated zeros used in the computation are zeros on the critical line and studies their adjacent spacings as an empirical sequence.
+
+\section{Data and seam-stitched board}
+
+\subsection{Source horizon}
+
+The terminal board used in the validation campaign contains \(\terminalrows\) rows and spans approximately
 \[
-h_1(T)=\left\{\frac{\log(T/2\pi)}{\pi}\right\}
+T = \terminalmin \quad \text{to} \quad T = \terminalmax.
 \]
-therefore acts as a natural logarithmic clock for phenomena tied to the local density regime. Higher harmonics are considered as comparators, but the first harmonic is the primary empirical candidate.
+The data are drawn from the available LMFDB zero tables, supplemented conceptually by the classical Odlyzko zero-table framework \cite{lmfdb,odlyzko_tables}. The working filenames used during the computational campaign sometimes contain the string \texttt{31p5B}; this was a downloader ceiling, not a claim that source data extend to \(31.5\mathrm{B}\). The actual terminal ordinate in the loaded source sequence is approximately \(30.610\mathrm{B}\).
 
-This revision focuses on four questions:
-\begin{enumerate}[label=(\arabic*)]
-    \item Do rare extreme compressions organize nontrivially in a logarithmic phase coordinate?
-    \item Does that organization survive substantial changes in fixed row size?
-    \item What continuation family best describes the trimmed late-stage packet drift on the observed board?
-    \item Is the strong terminal-band concentration merely a micro-resolution effect, or a property of the terminal band itself?
-\end{enumerate}
+\subsection{Seam stitching}
 
-The core answer is that the first harmonic remains dominant across all tested broad-board resolutions and on the direct terminal-band comparators. The continuation family selected for both $b_1$ and $b_2$ remains quadratic throughout the tested boards. On the final 28.5B to 31.5B band, the packet field becomes sharply tighter in $h_1$ at every tested terminal scale, with the 8k board yielding the strongest concentration of the three.
+The board is seam stitched: consecutive zero ordinates are decoded in shard order and cross-shard adjacent gaps are retained. This matters because discarding cross-shard gaps would create artificial seams in any local spacing statistic. The seam-preserving design is therefore part of the empirical instrument, not a cosmetic preprocessing step.
 
-\section{Data sources and seam-preserving construction}
+\subsection{Terminal row metric}
 
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}[
-    node distance=0.6cm,
-    box/.style={rectangle, rounded corners, draw=black, thick, text width=10.5cm, align=center, fill=blue!5, minimum height=0.8cm, font=\small},
-    arrow/.style={-{Stealth[length=2.5mm]}, thick}
-]
+The terminal packet audits use row-level spacing ratios derived from fitted and pure spacing spines. The primary metric in the final validation chain is \texttt{Gap\_to\_Fitted\_Ratio}; \texttt{Gap\_to\_Pure\_Ratio} is retained as a diagnostic comparator. Extreme packets are extracted by thresholding the row-level score distribution at high quantiles and grouping adjacent selected rows into connected packets.
 
-\node (raw) [box] {\textbf{1. Raw Data Input}\\Consecutive zeta-zero ordinates from LMFDB};
-\node (seam) [box, below=of raw] {\textbf{2. Seam-Preserved Continuation}\\Shard stitching with explicit carry-state boundary preservation};
-\node (board) [box, below=of seam] {\textbf{3. Variable-Resolution Observational Board}\\Data reduced to block sizes ranging from 130k down to 1k terminal blocks};
-\node (norm) [box, below=of board] {\textbf{4. Normalization \& Scoring}\\Local adjacent-zero spacing normalized to extract extremeness metrics};
-\node (packet) [box, below=of norm] {\textbf{5. Frozen Packet Extraction}\\Isolation of extreme-compression clusters under strict morphological constraints};
-\node (phase) [box, below=of packet] {\textbf{6. Phase Projection}\\Mapping packets into first-harmonic coordinates: $h_1 = \{\log(T/2\pi)/\pi\}$};
-\node (drift) [box, below=of phase] {\textbf{7. Local Drift Estimation}\\Quadratic fitting to extract local phase velocity ($b_1$) and curvature ($b_2$)};
-\node (audit) [box, below=of drift] {\textbf{8. Resolution Ablation \& Continuation Audits}\\Model-family competition and terminal-band comparator testing};
-
-\draw [arrow] (raw) -- (seam);
-\draw [arrow] (seam) -- (board);
-\draw [arrow] (board) -- (norm);
-\draw [arrow] (norm) -- (packet);
-\draw [arrow] (packet) -- (phase);
-\draw [arrow] (phase) -- (drift);
-\draw [arrow] (drift) -- (audit);
-
-\end{tikzpicture}
-\caption{Pipeline overview of the empirical instrument. Consecutive zeta-zero ordinates are decoded in shard order, stitched into a seam-preserved continuation stream, and reduced to variable-resolution boards. Packets are extracted under frozen morphology constraints, projected into logarithmic phase coordinates, and audited through local drift estimation, model-family competition, and resolution-ablation tests.}
-\label{fig:pipeline-overview}
-\end{figure}
-
-\paragraph{Terminal horizon convention.}
-The phrase ``full available LMFDB horizon'' refers to the complete
-available LMFDB zero sequence loaded for this campaign. The working
-download ceiling was set beyond the expected source endpoint to ensure
-complete retrieval, but the actual terminal ordinate of the available
-sequence is approximately $T=30.610\mathrm{B}$. Thus any filename or
-working label containing \texttt{31p5B} should be read as a retrieval
-ceiling rather than a data-content endpoint. No claim is made that
-source data extend to $31.5\mathrm{B}$; all empirical claims are
-finite-horizon claims on the loaded seam-stitched board.
-
-The primary data source consists of consecutive tabulated ordinates of nontrivial zeta zeros from the LMFDB~\cite{lmfdb} horizon available at the time of analysis, supplemented by the published zero tables~\cite{odlyzko_tables}. Source files are decoded in shard order and assembled into a seam-preserving continuation board. Carry-state is explicitly transferred across shard boundaries so that adjacent-zero gaps crossing one file boundary into the next are preserved.
-
-The main broad-board study uses fixed row sizes ranging from 130k down to 52k zeros per row on the continuous 16.5B to 31.5B board. In addition, a terminal-band comparator is built on the final 28.5B to 31.5B segment at both 52k, 8K, and 1k resolution. These terminal boards are not used to redefine the packet family; rather, they are used to test whether the terminal tightening is stable when the same logic is applied on the same band at very different row sizes.
-
-\subsection{Board and audit scales}
-
-Table~\ref{tab:board-scale} records the principal board scale and the main audited regimes referenced in this revision.
-
-\begin{table}[H]
-\centering
-\small
-\begin{tabular}{>{\raggedright\arraybackslash}p{0.48\textwidth} >{\raggedright\arraybackslash}p{0.36\textwidth}}
-\toprule
-\textbf{Quantity} & \textbf{Value} \\
-\midrule
-Principal fixed board resolution & 250{,}000 zeros per row \\
-Full continuous board rows & 415{,}203 \\
-Observed altitude range on principal continuous board & 0.09M to 30{,}610.00M \\
-Nominal terminal board horizon & 30.610B \\
-Rows in final continuation extension & 29{,}894 \\
-Rows at or above 30{,}505M on principal board & 1{,}491 \\
-Last decoded shard in terminal extension & \texttt{zeros\_30607946000} \\
-Primary phase coordinate & $h_1(T)=\left\{\log(T/2\pi)/\pi\right\}$ \\
-Broad-board ablation sizes in this revision & 130k, 90k, 70k, 52k \\
-Direct terminal-band comparator & 52k, 8K, and 1k on 28.5B to 31.5B \\
-\bottomrule
-\end{tabular}
-\caption{Scale summary for the principal continuous board and the main ablation regimes discussed in this revision.}
-\label{tab:board-scale}
-\end{table}
-
-\subsection{Seam metadata and continuity diagnostics}
-
-Each row carries metadata indicating whether it is pure interior, crosses a file boundary, or lies near a file edge. These tags are not decorative bookkeeping. They are used to test whether observed phase structure could be explained by seam contamination or edge bias.
-
-A seam-specific continuity diagnostic is therefore part of the instrument itself (Figure~\ref{fig:seam-continuity}). The key practical result is that the continuation board does not introduce large fitted-residual jumps at the audited bridge altitudes. This remains true on the broad-board ablations and, in the terminal 1k micro-board, at the 28{,}505M bridge as well.
-
-\optionalfigure{q1_gap_continuity_plot_v16c_250k_31p5B.png}%
-{Seam continuity diagnostic across the audited historical bridge points
-of the continuation board. The figure shows the global observed spacing
-field, the residual field relative to the pure spine, and the residual
-field relative to the fitted spine, with seam markers overlaid to verify
-that the seam-preserved continuation logic does not introduce visible
-discontinuities.}%
-{fig:seam-continuity}
-
-\section{Normalization, compression score, and packet extraction}
-
-\subsection{Local normalization and compression score}
-
-Let $\Delta_k$ denote the mean adjacent-zero spacing summary in row $k$, and let $T_k$ denote the representative row altitude. Two reference spines are considered:
+The primary row-level reconstruction used in the validation chain selects the upper tail of \texttt{Gap\_to\_Fitted\_Ratio} at
 \[
-s_{\mathrm{pure}}(T)=\frac{2\pi}{\log(T/2\pi)},
-\qquad
-\widehat{s}(T)=\frac{a}{\log(T/b)},
+\tau=0.995,
 \]
-where $\widehat{s}$ is a fitted local spine estimated from the board itself.
+yielding \(\primarypackets\) packets. This is close to the original terminal packet count used in the earlier phase-locking analysis, and it avoids the one-packet degeneracy encountered by an initial rolling-window proxy benchmark.
 
-The row-level compression score is then defined explicitly by
-\[
-X_k := 1-\frac{\Delta_k}{\widehat{s}(T_k)}.
-\]
-Large positive values of $X_k$ indicate rows whose local mean spacing is unusually compressed relative to the fitted local spacing scale. This is the extremeness score used operationally in the packet extraction pipeline.
-
-\subsection{Frozen packet family}
-
-Fix an upper quantile threshold $\tau$ on the eligible-row population of the compression score. The selected row set is
-\[
-\mathcal{E}_\tau := \{k : X_k \ge \tau\}.
-\]
-A packet is a connected component of $\mathcal{E}_\tau$ in row-index order. The trimmed late-stage audit retains only packets satisfying frozen morphology constraints on row count, altitude width, and seam cleanliness (Table~\ref{tab:frozen-packet-family}).
-
-\begin{table}[H]
-\centering
-\small
-\begin{tabular}{>{\raggedright\arraybackslash}p{0.32\textwidth} >{\raggedright\arraybackslash}p{0.64\textwidth}}
-\toprule
-\textbf{Criterion} & \textbf{Operational meaning} \\
-\midrule
-Packet width ceiling $w_{\max}$ & Maximum permitted altitude span for a retained packet. \\
-Packet row-count ceiling $n_{\max}$ & Maximum permitted number of board rows in a retained packet. \\
-Extremeness threshold $\tau$ & Frozen row-level extremeness floor used to define the selected set $\mathcal{E}_\tau$. \\
-Peak signal floor $\rho_{\min}$ & Minimum packet-level peak signal requirement used to exclude weak or diffuse clusters. \\
-Interior-purity floor $p_{\mathrm{int,min}}$ & Minimum required fraction of pure-interior rows inside a retained packet. \\
-Boundary-contamination ceiling $p_{\mathrm{bnd,max}}$ & Maximum allowed fraction of seam-crossing or boundary-contaminated rows in a retained packet. \\
-Frozen-family status & These constraints are frozen before the deepest holdout phases and then reused without downstream retuning. \\
-\bottomrule
-\end{tabular}
-\caption{Schematic definition of the frozen packet family used in the
-main empirical rail. Exact numerical thresholds for $w_{\max}$,
-$n_{\max}$, $\tau$, $\rho_{\min}$, $p_{\mathrm{int,min}}$, and
-$p_{\mathrm{bnd,max}}$ are preserved in the associated manifests and
-artifact tables deposited with the preprint package under the DOI on the
-title page. These values were frozen before the deepest holdout phases
-and were not adjusted afterward.}
-\label{tab:frozen-packet-family}
-\end{table}
-
-\section{Phase coordinates, concentration, and local continuation}
-
-\subsection{Candidate phase coordinates}
-
-For harmonic $m\in\mathbb{N}$, define
-\[
-h_m(T)=\left\{m\frac{\log(T/2\pi)}{\pi}\right\}.
-\]
-This choice is structurally motivated by the classical density law
-\[
-N(T)=\frac{T}{2\pi}\log\!\left(\frac{T}{2\pi}\right)-\frac{T}{2\pi}+O(\log T),
-\]
-which yields the leading local mean-spacing scale
-\[
-g(T)\asymp \frac{2\pi}{\log(T/2\pi)}.
-\]
-Accordingly, $\log(T/2\pi)$ acts as a natural density clock, and division by $\pi$ yields the first-harmonic phase coordinate used throughout the paper. The primary coordinate is $h_1$; higher harmonics are used as comparators rather than as primary hypotheses.
-
-\subsection{Packet concentration diagnostics}
-
-For packet phases $\theta_1,\dots,\theta_N$, define the circular resultant
-\[
-R := \left|\frac{1}{N}\sum_{j=1}^N e^{2\pi i \theta_j}\right|.
-\]
-For $q\in(0,1)$, let $A_q$ denote the minimum arc length needed to cover a fraction $q$ of the packet phases on $\mathbb{R}/\mathbb{Z}$. The operational statistic used in the main text is $A_{0.80}$, denoted Arc80.
-
-\subsection{Local quadratic continuation}
-
-Packets are sorted by altitude and grouped into rolling windows. Within each rolling window, the unwrapped packet phase is fit by a local quadratic law
-\[
-z_j = \alpha + b_1(T_j-T_0)+b_2(T_j-T_0)^2+\varepsilon_j,
-\]
-where $z_j$ is the unwrapped local phase and $T_0$ is the local window center. The coefficient $b_1$ is interpreted descriptively as local drift and $b_2$ as local curvature. In the present revision, the competing model-family comparison consistently selected quadratic continuation for both coefficients on the tested boards.
-
-\section{Validation protocol and interpretive caution}
-
-\subsection{Discovery, freeze, and validation chronology}
-
-The empirical rail is staged in four logical phases:
-\begin{enumerate}[label=(\arabic*)]
-    \item exploratory development on the principal board identifies a workable packet habitat, candidate phase coordinate family, and local-fit architecture;
-    \item the packet family, harmonic scan, and local fitting conventions are frozen before the deepest continuation and terminal audits;
-    \item the frozen configuration is tested under extension-only continuation, disjoint terminal windows, and residual-renormalization attempts on the principal board;
-    \item the stitched field is rebuilt at substantially different non-divisor resolutions, and trimmed late-stage replays are used to test whether the dominant phase organization survives changes in row boundaries, packet segmentation, edge classifications, and seam adjacency.
-\end{enumerate}
-
-\subsection{Search-space control and multiple-testing caution}
-
-The instrument was developed through an exploratory phase, so this paper does not present a single omnibus $p$-value for the full historical search path. Instead, credibility is assigned through staged freeze points, blind continuation, stability of harmonic ordering, persistence of the small residual layer under habitat and estimator perturbations, and reproducibility of the dominant $h_1$ organization across independently rebuilt boards.
-
-
-This observational framing is consistent with the broader empirical
-tradition in zeta-zero statistics~\cite{odlyzko1987,rubinstein2005},
-which has established high-precision correspondence with GUE predictions
-in bulk statistics while leaving rare-event subpopulations comparatively
-understudied.
-
-
-The present revision therefore treats the first-harmonic phase law as the most stable empirical finding, while treating the exact continuation family as a result that has now stabilized within the trimmed protocol but is still stated as an observed-horizon empirical law rather than an asymptotic theorem.
-
-\section{Results}
-
-
-\subsection{Broad-board resolution ablation}
-
-Table~\ref{tab:broad-ablation} summarizes the trimmed late-stage resolution ladder on the continuous 16.5B to 31.5B board. The dominant harmonic remains $h_1$ at every tested row size, while the continuation family selected for both $b_1$ and $b_2$ remains quadratic throughout.
-
-\begin{table}[tbp]
-\centering
-\footnotesize
-\setlength{\tabcolsep}{5pt}
-\begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{lrrrrrr}
-\toprule
-\textbf{Row size} & \textbf{Rows built} & \textbf{Best harm.} & \textbf{$R$} & \textbf{Arc80} & \textbf{Best $b_1$} & \textbf{Best $b_2$} \\
-\midrule
-130k & 380{,}597 & $h_1$ & 0.939191 & 0.144928 & \texttt{poly\_deg2} & \texttt{poly\_deg2} \\
-90k  & 549{,}752 & $h_1$ & 0.940347 & 0.143237 & \texttt{poly\_deg2} & \texttt{poly\_deg2} \\
-70k  & 706{,}824 & $h_1$ & 0.938814 & 0.144641 & \texttt{poly\_deg2} & \texttt{poly\_deg2} \\
-52k  & 951{,}494 & $h_1$ & 0.938226 & 0.145327 & \texttt{poly\_deg2} & \texttt{poly\_deg2} \\
-\bottomrule
-\end{tabular}
-\end{adjustbox}
-\caption{Broad-board resolution ablation on the continuous 16.5B to 31.5B seam-stitched board. Across all tested row sizes, the best harmonic remains $h_1$, and the trimmed late-stage continuation winner remains quadratic for both $b_1$ and $b_2$.}
-\label{tab:broad-ablation}
-\end{table}
-
-These row sizes are not trivial divisors of one another in a way that would preserve identical packet segmentation. Changing row size changes row boundaries, edge placements, packet grouping, rolling-window placement, and seam adjacency windows. Despite those changes, the same harmonic and the same continuation family remain preferred. This makes a simple row-periodicity explanation implausible.
-
-\subsection{Terminal-band tightening}
-
-The broad-board ablation shows stability. The terminal-band comparator shows something stronger: local tightening. Table~\ref{tab:terminal-comparator} compares the same terminal 28.5B to 31.5B band at 52k, 8k, and 1k resolution.
-
-\begin{table}[H]
-\centering
-\footnotesize
-\setlength{\tabcolsep}{4pt}
-\begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{lrrrrrrrr}
-\toprule
-\textbf{Band} & \textbf{Rows built} & \textbf{Best harm.} & \textbf{$R$} & \textbf{Arc80} & \textbf{Best $b_1$} & \textbf{Best $b_2$} & \textbf{Fwd $b_1$} & \textbf{Fwd $b_2$} \\
-\midrule
-52k term. & 143{,}863 & $h_1$ & 0.999202 & 0.017055 & \texttt{poly\_deg2} & \texttt{poly\_deg2} & $\approx 1.0\times 10^{-5}$ & $-1.719\times 10^{-10}$ \\
-8k term.  & 928{,}008 & $h_1$ & 0.999315 & 0.015305 & \texttt{poly\_deg2} & \texttt{poly\_deg2} & $\approx 1.0\times 10^{-5}$ & $-1.701\times 10^{-10}$ \\
-1k term.  & 7{,}480{,}892 & $h_1$ & 0.999165 & 0.015836 & \texttt{poly\_deg2} & \texttt{poly\_deg2} & $1.0401\times 10^{-5}$ & $-1.699\times 10^{-10}$ \\
-\bottomrule
-\end{tabular}
-\end{adjustbox}
-\caption{Direct terminal-band comparator on the final 28.5B to 31.5B segment. The unusually tight $h_1$ concentration persists at 52k, 8k, and 1k resolution, showing that terminal tightening is a property of the terminal band itself rather than a 1k-only artifact. The 8k board yields the smallest Arc80 and the largest resultant among the three tested terminal scales, suggesting a mesoscopic scale of maximal local coherence on the observed band. The forward values shown are the first one-step extrapolations beyond the observed edge.}
-\label{tab:terminal-comparator}
-\end{table}
-
-The three-scale terminal ladder materially sharpens the interpretation of the terminal effect. If the observed tightening were merely a coarse-board smoothing artifact, the 52k board would be expected to dominate. If it were merely a micro-resolution sharpening artifact, the 1k board would be expected to dominate. Instead, the 8k board produces the strongest concentration of the three, while all three boards retain the same best harmonic and the same continuation-family winners. This pattern suggests that the terminal packet field has a genuinely stable local phase organization on the observed horizon, with an intermediate scale of maximal coherence rather than a trivial monotone dependence on board resolution.
-
-The 1k terminal micro-board contained 7{,}480{,}892 rows, of which 7{,}379{,}386 were pure interior. At the seam near 28{,}505M, the mean fitted-residual jump across the bridge was
-\[
-1.3086\times 10^{-7},
-\]
-showing that the seam remains small even under this much finer ruler.
-
-
-\subsection{Terminal 8k reinforcement audits}
-
-We applied three reinforcement audits to the terminal 8k board: a matched-packet placement null, a threshold-stability sweep, and a jackknife robustness audit.
-
-To test whether the terminal 8k concentration could be explained by packet morphology alone, we ran a matched-packet placement null on the terminal 8k board. This null preserved packet count and packet row lengths while randomizing packet locations among eligible rows. We first established the effect on a 128-replicate pilot and then deepened the audit to 2048 replicates. On the final 2048-replicate run, the real packet field again selected $h_1$ as the best harmonic, with
-\[
-R=0.999315,\qquad \mathrm{Arc80}=0.015305.
-\]
-The matched-null mean at $h_1$ was
-\[
-R=0.999150,\qquad \mathrm{Arc80}=0.017977,
-\]
-and the real field exceeded all 2048 null replicates, giving empirical exceedance probability
-\[
-p=\frac{1}{2049}\approx 4.88\times 10^{-4}.
-\]
-Thus the terminal 8k phase concentration is not explained by packet morphology alone.
-
-We also tested threshold stability directly on the terminal 8k board by replaying the fitted-spine packet extractor across upper-tail thresholds $\tau\in\{0.9900,0.9925,0.9950,0.9975,0.9990\}$. At every tested threshold, the dominant harmonic remained $h_1$. The corresponding best-harmonic resultants were
-\[
-0.999268,\ 0.999288,\ 0.999315,\ 0.999360,\ 0.999459,
-\]
-with Arc80 widths
-\[
-0.016038,\ 0.015757,\ 0.015305,\ 0.015011,\ 0.012805,
-\]
-while packet count decreased from $9120$ to $921$. Thus the terminal 8k phase lock is not tied to a single frozen threshold choice: across a substantial tail ladder, the same first harmonic remains dominant and the packet cloud becomes progressively tighter as the tail is restricted.
-
-\begin{table}[H]
-\centering
-\small
-\begin{tabular}{lrrrr}
-\toprule
-\textbf{Audit} & \textbf{Packet count} & \textbf{Best harmonic} & \textbf{Best $R$} & \textbf{Arc80} \\
-\midrule
-8k real field at $\tau=0.995$ & 4581 & $h_1$ & 0.999315 & 0.015305 \\
-8k matched-packet null mean & 4581 & $h_1$ & 0.999150 & 0.017977 \\
-8k $\tau=0.9900$ & 9120 & $h_1$ & 0.999268 & 0.016038 \\
-8k $\tau=0.9925$ & 6852 & $h_1$ & 0.999288 & 0.015757 \\
-8k $\tau=0.9950$ & 4581 & $h_1$ & 0.999315 & 0.015305 \\
-8k $\tau=0.9975$ & 2297 & $h_1$ & 0.999360 & 0.015011 \\
-8k $\tau=0.9990$ & 921  & $h_1$ & 0.999459 & 0.012805 \\
-\bottomrule
-\end{tabular}
-\caption{Terminal 8k threshold and null reinforcement. The matched-packet placement null remains highly concentrated because the terminal corridor itself is narrow, but the real packet field is tighter in both resultant and Arc80. Across the tested threshold ladder, the dominant harmonic remains $h_1$ throughout.}
-\label{tab:terminal-8k-null-tau}
-\end{table}
-
-We also performed a jackknife robustness audit on the same frozen terminal 8k packet field by randomly dropping 20\% of packets and recomputing the $h_1$ concentration statistics 10{,}000 times. The resultant remained extremely stable, with mean
-\[
-0.999315,
-\]
-1st percentile
-\[
-0.999302,
-\]
-and absolute worst case
-\[
-0.999293.
-\]
-Likewise, Arc80 remained tightly bounded, with mean
-\[
-0.015316,
-\]
-99th percentile
-\[
-0.015557,
-\]
-and absolute worst case
-\[
-0.015758.
-\]
-This shows that the terminal $h_1$ lock is systemic across the packet population and not driven by a small number of disproportionately influential packets.
-
-\begin{table}[H]
-\centering
-\small
-\begin{tabular}{lrrrr}
-\toprule
-\textbf{Audit} & \textbf{Best harmonic} & \textbf{Resultant $R$} & \textbf{Arc80} & \textbf{Note} \\
-\midrule
-8k real field & $h_1$ & 0.999315 & 0.015305 & frozen $\tau=0.995$ field \\
-8k matched-null mean & $h_1$ & 0.999150 & 0.017977 & 2048 packet-placement nulls \\
-8k jackknife mean & $h_1$ & 0.999315 & 0.015316 & 10{,}000 runs, 20\% dropped \\
-8k jackknife 1st / 99th pctile & $h_1$ & 0.999302 & 0.015557 & robustness envelope \\
-\bottomrule
-\end{tabular}
-\caption{Terminal 8k statistical reinforcement. The real packet field is tighter than the matched-packet null and remains highly stable under aggressive packet subsampling.}
-\label{tab:terminal-8k-reinforcement}
-\end{table}
-
-
-\subsection{Sensitivity audits and boundary-layer caution}
-
-On the principal continuous board, habitat-sensitivity and estimator-definition audits indicate that the remaining small residual layer is not materially erased by admissible packet-habitat perturbations or by reasonable changes in local fitting specification. The important claim here is modest: the residual appears bounded, structured, and sign-stable on the observed horizon. The stronger and more stable empirical law remains the dominant first-harmonic packet organization itself.
-
-\subsection{Odlyzko sidecar probes}
-
-Sparse high-altitude Odlyzko spot checks were used only as out-of-domain sidecar probes. These windows were tiny relative to the continuous LMFDB rail and were discontinuous by construction. Under the tested residual-phase clustering, distance, and rank-order summaries, they did not yield statistically significant local holdout correspondence at the nominal decision level used in the sidecar notebooks. Because the probes are both discontinuous and low-volume relative to the main board, they are interpreted as limitations checks rather than as extensions of the primary continuous-board claims.
-
-
-
-
-\section{Discussion}
-
-The empirical picture is now cleaner than in the longer compiled draft. The seam-stitched board behaves stably under major changes in row size. The dominant harmonic does not change. The trimmed continuation family does not change. The terminal band becomes sharply tighter, and that tightening survives an apples-to-apples comparison on the same band at three very different resolutions.
-
-
-A natural reference frame for extreme spacing compressions is the
-GUE nearest-neighbor spacing distribution~\cite{mehta2004,odlyzko1987},
-whose lower tail governs the expected rate of very small gaps. The present
-results are consistent with this framework in the sense that extreme
-compressions exist and are rare, but the phase-concentration finding
-asserts additional structure beyond what the ambient GUE tail process
-would predict. We do not claim a departure from GUE in bulk statistics;
-the claim is confined to the organizing geometry of the rarest events as
-a distinct subpopulation.
-
-
-A skeptical interpretation would be that finer row size simply over-resolves local noise. The terminal comparator cuts against that interpretation: the 52k terminal board already shows essentially the same tight locking as the 1k terminal board, while the intermediate 8k board yields the strongest concentration of the three. Another skeptical interpretation would be that the continuation family is an artifact of one arbitrary chunk size. The broad-board ladder at 130k, 90k, 70k, and 52k cuts against that interpretation as well.
-
-The terminal 8k reinforcement audits materially narrow the remaining artifact explanations. The matched-packet placement null shows that packet morphology by itself does not reproduce the full observed concentration: even after preserving packet count and packet row lengths, the randomized packet field remains measurably weaker than the real one, and the real field exceeds all 2048 null replicates. Meanwhile, the threshold-stability sweep shows that the dominance of $h_1$ is not an artifact of a single extremeness cutoff. Across tested tail levels from $\tau=0.9900$ through $\tau=0.9990$, the winner remains $h_1$, while the packet field tightens as the extractor is restricted to rarer compressions.
-
-The jackknife audit strengthens this still further. After randomly removing 20\% of packets in 10{,}000 independent subsamples, the $h_1$ resultant and Arc80 remain tightly concentrated around their full-field values. This shows that the terminal lock is not carried by a handful of exceptional packets, but is distributed broadly across the packet population.
-
-At the same time, this remains an observational study. The present revision improves identifiability by explicitly defining the compression score, by strengthening the motivation for the phase coordinate, by preserving freeze-point discipline, and by adding broad-board resolution tests, terminal-band comparators, matched-packet null testing, threshold-stability replay, and packet-level robustness audits. Formal asymptotic significance theory and broader synthetic controls remain appropriate targets for subsequent work.
-
-
-\section{Limitations}
-The principal claims are empirical and confined to the observed horizon. We do not assert that the quadratic continuation family identified here extends as a theorem to greater heights, nor do we claim that terminal-band tightening on the last observed band must persist unchanged to arbitrarily greater heights. The trimmed late-stage continuation audit is intentionally restrictive and therefore speaks to the stability of one frozen protocol rather than to every conceivable packet extractor.
-
-The statistical validation layer is now materially stronger but still intentionally local to the observed horizon. A matched-packet placement null on the terminal 8k board yielded empirical exceedance probability
-\[
-p\approx 4.88\times 10^{-4}
-\]
-over 2048 replicates, a terminal 8k threshold-stability sweep showed that $h_1$ remained dominant across all tested upper-tail cuts from $\tau=0.9900$ to $\tau=0.9990$, and a 10{,}000-run jackknife audit showed that the terminal $h_1$ lock remains stable after random removal of 20\% of packets. These tests substantially strengthen identifiability and robustness, but they do not amount to a universal asymptotic significance theory. The paper therefore continues to frame its main conclusion as an observed-horizon empirical law supported by seam diagnostics, freeze-point discipline, resolution ablation, terminal-band comparators, null testing, threshold-stability replay, and packet-level robustness audits.
-
-
-\section{Conclusion}
-
-Rare extreme compressions in adjacent zeta-zero spacing are empirically organized by the first logarithmic harmonic
-\[
-h_1(T)=\left\{\frac{\log(T/2\pi)}{\pi}\right\}
-\]
-on the continuous seam-stitched board. This organization survives broad-board row-size ablations from 130k to 52k zeros per row, and the trimmed late-stage continuation audit consistently selects quadratic models for both $b_1$ and $b_2$ on the observed horizon.
-
-On the final 28.5B to 31.5B band, the packet cloud becomes dramatically tighter in $h_1$, and this tightening persists across 52k, 8k, and 1k terminal boards, with the intermediate 8k resolution yielding the strongest concentration of the three. This conclusion is further reinforced by a terminal 8k matched-packet placement null, which the real field exceeds across all 2048 tested replicates, by a terminal 8k threshold ladder on which the dominant harmonic remains $h_1$ throughout, and by a 10{,}000-run jackknife audit under random removal of 20\% of packets, on which the terminal $h_1$ lock remains highly stable.
-
-The terminal band therefore exhibits genuine local tightening on the observed board, while the broader empirical law remains deliberately stated as an observed-horizon result rather than a closed asymptotic theorem.
-
-
-\appendix
-
-\section{Mathematical Definitions and Operators}
-\label{sec:appendix-a}
-
-This appendix formalizes the principal data objects and operators used in the empirical pipeline.
-
-\subsection{Raw zero stream and seam-preserving continuation}
-
-Let
-\[
-0 < \gamma_1 < \gamma_2 < \gamma_3 < \cdots
-\]
-denote the ordinates of consecutive nontrivial zeros of the Riemann zeta function on the critical line, and let
-\[
-g_n := \gamma_{n+1}-\gamma_n
-\]
-denote the adjacent-zero gaps.
-
-The empirical board is assembled from decoded shards
-\[
-S_1,S_2,\dots,S_m
-\]
-using ordered concatenation with carry-state preservation:
-\[
-\Gamma^{(m)} := S_1 \,\widehat{\cup}\, S_2 \,\widehat{\cup}\, \cdots \,\widehat{\cup}\, S_m.
-\]
-The notation $\widehat{\cup}$ indicates that cross-shard adjacent-zero gaps are preserved.
-
-\subsection{Fixed-resolution observational board}
-
-Let $M$ denote the chosen row size in zeros. A row block is
-\[
-W_k := \{\gamma_{(k-1)M+1},\dots,\gamma_{kM}\},
-\]
-with representative altitude $T_k$. Each row yields local spacing summaries, including the mean local gap
-\[
-\Delta_k := \frac{1}{M-1}\sum_{\gamma_n,\gamma_{n+1}\in W_k} (\gamma_{n+1}-\gamma_n).
-\]
-
-\subsection{Pure and fitted spines}
-
-The pure logarithmic spacing spine is
-\[
-s_{\mathrm{pure}}(T)=\frac{2\pi}{\log(T/2\pi)}.
-\]
-The fitted empirical spine is
-\[
-\widehat{s}(T)=\frac{a}{\log(T/b)}.
-\]
-
-\subsection{Compression score}
-
-The row-level compression score is
-\[
-X_k := 1-\frac{\Delta_k}{\widehat{s}(T_k)}.
-\]
-This is the explicit extremeness score used in the present revision. Large positive values of $X_k$ correspond to stronger local compression relative to the fitted empirical spacing scale.
+\section{Methods}
 
 \subsection{Packet extraction}
 
-Fix an upper quantile threshold $\tau$ on the eligible-row population of the compression score. The selected row set is
+For a row-level score sequence \(X_k\), threshold \(\tau\), and tail direction \(d\), define the selected row set
 \[
-\mathcal{E}_\tau := \{k : X_k \ge \tau\}.
+\mathcal{E}_{\tau,d}
+=
+\begin{cases}
+\{k:X_k\ge q_\tau(X)\}, & d=\mathrm{ge},\\[4pt]
+\{k:X_k\le q_{1-\tau}(X)\}, & d=\mathrm{le}.
+\end{cases}
 \]
-A packet is a connected component of $\mathcal{E}_\tau$ in the line of row indices. The trimmed late-stage audit retains only packets satisfying frozen morphology constraints on row count, altitude width, and seam cleanliness.
+A packet is a connected component of \(\mathcal{E}_{\tau,d}\) in row-index order. The packet center is chosen as the most extreme row within the component.
 
-\subsection{Phase coordinates}
+The primary population in this manuscript uses \(\texttt{Gap\_to\_Fitted\_Ratio}\), \(d=\mathrm{ge}\), and \(\tau=0.995\). Sensitivity grids over nearby \(\tau\) values and over the pure-ratio score are used to distinguish stable architecture from metric-specific endpoint behavior.
 
-For harmonic $m\in\mathbb{N}$, define
+\subsection{Circular statistics}
+
+For packet altitudes \(T_1,\ldots,T_N\), the earlier preprint studied the phases
 \[
-h_m(T) := \left\{m\frac{\log(T/2\pi)}{\pi}\right\}.
+h_m(T_j)=\left\{m\frac{\log(T_j/2\pi)}{\pi}\right\}.
 \]
-If $T_j^\ast$ is the representative altitude of packet $P_j$, then the packet phase in harmonic $m$ is
+The circular resultant is
 \[
-\theta_j^{(m)} := h_m(T_j^\ast).
+R=\left|\frac{1}{N}\sum_{j=1}^N e^{2\pi i h_m(T_j)}\right|.
 \]
+For \(q=0.80\), Arc80 is the shortest circular arc covering \(80\%\) of the packet phases.
 
-\subsection{Concentration diagnostics}
+The validation campaign shows that \(R\) is not a robust positive statistic under search-adjusted nulls. Arc80 remains useful, but the \(h_1\) Arc80 corridor is explained by altitude localization rather than by \(h_1\)-specific resonance.
 
-For packet phases $\theta_1,\dots,\theta_N$, define the circular resultant
+\subsection{Packet yield rate}
+
+A central correction in this replacement manuscript is the use of packet yield rate rather than raw packet count. For an altitude bin \(B\), define
 \[
-R := \left|\frac{1}{N}\sum_{j=1}^N e^{2\pi i \theta_j}\right|.
+Y(B)=\frac{\#\{\text{packet centers in }B\}}{\#\{\text{board rows in }B\}}.
 \]
-For $q\in(0,1)$, let $A_q$ denote the minimum arc length needed to cover a fraction $q$ of the packet phases on $\mathbb{R}/\mathbb{Z}$. The operational statistic used in the main text is $A_{0.80}$, denoted Arc80.
+This avoids the denominator trap: zero density varies with altitude, so raw packet counts alone cannot distinguish true packet overrepresentation from a larger row population.
 
-\subsection{Local quadratic continuation}
+\subsection{Altitude-only projection null}
 
-Packets are sorted by altitude and grouped into rolling windows. Within each rolling window, the unwrapped packet phase is fit by a quadratic law
+To test whether the \(h_1\) Arc80 corridor is explained by altitude localization, we generate surrogate packet sets that preserve the packet altitude histogram. The terminal altitude range is divided into bins; within each bin, the surrogate draws the same number of rows as the real packet field contributes from that bin. The surrogate packet altitudes are then mapped through \(h_1\), and Arc80 is recomputed.
+
+If these altitude-only surrogates reproduce the real \(h_1\) Arc80, then the \(h_1\) corridor is explained as a projection of altitude localization.
+
+\subsection{Search-adjusted harmonic null}
+
+The \(h_1\) claim is vulnerable to a look-elsewhere effect over harmonics. The validation campaign therefore allows synthetic and permutation nulls to scan
 \[
-z_j = \alpha + b_1(T_j-T_0)+b_2(T_j-T_0)^2+\varepsilon_j,
+h_1,h_2,h_3,h_4,h_5
 \]
-where $z_j$ is the unwrapped local phase and $T_0$ is the local window center. The coefficient $b_1$ is interpreted descriptively as local drift and $b_2$ as local curvature.
+and retain the best circular statistic. This compares the real result to the null's best available harmonic, not merely to the null's \(h_1\) value.
 
-\subsection{Continuation family comparison}
+\subsection{Coordinate-specificity audit}
 
-The trimmed late-stage continuation audit compares several simple families for $b_1$ and $b_2$, including constant, linear, quadratic, and exponential-relaxation comparators. On every broad-board and terminal-band run reported in this revision, the winning family for both $b_1$ and $b_2$ was quadratic.
+To test whether the Arc80 corridor belongs specifically to \(h_1\), the validation campaign compares \(h_1\) against:
+\begin{itemize}
+    \item nearby frequency perturbations \(h_{1,\epsilon}(T)=\{(1+\epsilon)\log(T/2\pi)/\pi\}\);
+    \item higher harmonics \(h_m\);
+    \item monotone altitude controls, including linear \(T\), \(\sqrt{T}\), \(\log T\), and rank-\(T\);
+    \item random phase controls.
+\end{itemize}
+The key normalized statistic is
+\[
+\mathrm{Arc80}_{\mathrm{norm}}=
+\frac{\mathrm{Arc80}(\text{packet phases})}
+     {\mathrm{Arc80}(\text{all board rows})}.
+\]
+This prevents coordinates with small total phase motion over the terminal band from appearing artificially strong.
 
-\subsection{Forward prediction}
+\subsection{Dense modulus search-adjusted null}
 
-Let $\widehat{b}_1(T)$ and $\widehat{b}_2(T)$ denote the best-fit continuation laws on the observed rolling-window centers. Short forward predictions are obtained by evaluating these fits on the next one or two extrapolated center locations beyond the observed edge. These forward values are reported descriptively and are not claimed as asymptotic closure.
+For the row-sector claim, the validation campaign scans all moduli
+\[
+M=800,801,\ldots,1200
+\]
+under a base-6 sectorization and computes \(S_{\mathrm{sector}}(M)\). Each permutation null shuffles tail signs, scans the same full modulus range, and records
+\[
+\max_{800\le M\le 1200} S_{\mathrm{sector}}^{\mathrm{null}}(M).
+\]
+This is the correct look-elsewhere comparison for the modulus claim.
 
-\subsection{Code and artifact mapping}
+\section{Validation chronology}
+
+Table~\ref{tab:validation-chronology} summarizes the validation sequence.
 
 \begin{table}[H]
 \centering
 \small
-\begin{tabular}{lll}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{p{0.12\textwidth}p{0.32\textwidth}p{0.31\textwidth}p{0.18\textwidth}}
 \toprule
-\textbf{Math symbol} & \textbf{Formal meaning} & \textbf{Code / artifact analogue} \\
+\textbf{Audit} & \textbf{Question} & \textbf{Result} & \textbf{Role} \\
 \midrule
-$\gamma_n$ & consecutive zero ordinates & decoded zero stream \\
-$g_n$ & adjacent-zero gap & seam-stitched gap extractor \\
-$W_k$ & fixed-resolution window & row block at chosen resolution \\
-$P_j$ & extreme packet & connected selected row cluster \\
-$h_1(T)$ & first-harmonic phase & \texttt{logT\_over\_pi\_h1} \\
-$b_{1,m}, b_{2,m}$ & local drift / curvature & local quadratic coefficients \\
-$\varepsilon_{\mathrm{term}}$ & terminal residual & terminal holdout miss / boundary layer \\
+P83B & Does \(h_1\) concentration survive packet-count-matched search-adjusted synthetic controls? & Split result: \(R\) fails; Arc80 survives packet-count controls. & Demotes \(R\); isolates Arc80 for further testing. \\
+P84 & Is the surviving Arc80 corridor \(h_1\)-specific? & No. Rank/altitude controls and block-matched nulls absorb \(h_1\) specificity. & Rejects coordinate-specific \(h_1\) interpretation. \\
+P85 & What explains the \(h_1\) corridor if \(h_1\) is not the mechanism? & Altitude-only surrogates reproduce \(h_1\) Arc80; packet field has multi-component altitude architecture. & Establishes replacement mechanism. \\
+P85R & Is there extra sub-block microstructure beyond macro altitude bands? & No strong support after repaired sub-block null. & Keeps replacement mechanism macro-altitude, not micro-fractal. \\
+P86 & Does modulus \(1009\) survive dense search-adjusted modulus controls? & No. No modulus survives look-elsewhere correction. & Rejects row-sector engine claim. \\
 \bottomrule
 \end{tabular}
-\caption{Translation of formal mathematical notation to the principal code-facing objects in the computational pipeline.}
-\label{tab:code-mapping}
+\end{adjustbox}
+\caption{Validation chronology leading to the replacement interpretation.}
+\label{tab:validation-chronology}
+\end{table}
+
+\section{Results}
+
+\subsection{The packet field survives}
+
+The first key result is that the packet object survives the interpretive collapse of the \(h_1\) coordinate. The P83B reconstruction extracts \(\primarypackets\) packets under the primary fitted-ratio tail rule. This establishes that the empirical object is not merely an artifact of a rolling-window proxy or a one-packet degeneracy.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lr}
+\toprule
+\textbf{Quantity} & \textbf{Value} \\
+\midrule
+Terminal rows & \terminalrows \\
+Altitude range & \(\terminalmin\) to \(\terminalmax\) \\
+Primary metric & \texttt{Gap\_to\_Fitted\_Ratio} \\
+Primary direction & \texttt{ge} \\
+Primary threshold & \(\tau=0.995\) \\
+Primary packet count & \(\primarypackets\) \\
+\bottomrule
+\end{tabular}
+\caption{Primary terminal packet reconstruction used in the validation chain.}
+\label{tab:primary-packet-reconstruction}
+\end{table}
+
+\subsection{\texorpdfstring{\(R\)}{R} fails, Arc80 survives packet-count controls}
+
+P83B compares the packet field against packet-count-matched synthetic and permutation controls, with the null allowed to scan harmonics \(h_1,\ldots,h_5\). The result is split. The circular resultant \(R\) does not separate from the search-adjusted null. In fact, the null routinely matches or exceeds the real resultant. The Arc80 corridor, however, is narrower than the packet-count-matched synthetic and permutation controls.
+
+This split changes the role of the statistics. \(R\) is retained only as descriptive. Arc80 remains a real geometric feature, but it requires coordinate-specificity testing.
+
+\subsection{The Arc80 corridor is not \texorpdfstring{\(h_1\)}{h1}-specific}
+
+P84 tests whether the surviving Arc80 corridor belongs specifically to \(h_1\). It does not. The normalized \(h_1\) Arc80 is outperformed by rank-altitude controls, and block-matched altitude nulls absorb the apparent \(h_1\)-specific effect. The epsilon perturbation surface is effectively flat, indicating that \(h_1\) is not a sharp local optimum in the nearby log-phase family.
+
+The conclusion is not that the packet field is random. It is that \(h_1\) is not the explanatory coordinate.
+
+\subsection{Altitude-only surrogates reproduce the \texorpdfstring{\(h_1\)}{h1} corridor}
+
+P85 provides the replacement explanation. The real \(h_1\) Arc80 for the primary packet field is approximately
+\[
+\mathrm{Arc80}_{h_1}=0.017454.
+\]
+Altitude-only surrogate packets, drawn to preserve the same altitude-bin distribution, have mean
+\[
+\mathrm{Arc80}_{h_1}^{\mathrm{surr}}\approx 0.017469.
+\]
+The empirical probability that the surrogate Arc80 is at least as tight as the real value is
+\[
+p\approx \projectionp.
+\]
+Thus the old \(h_1\) corridor is reproduced by altitude localization alone. The \(h_1\) coordinate is a descriptive projection of the packet altitude distribution.
+
+The numerical proximity
+\[
+\projectionp \approx \pi-3
+\]
+is recorded as a future-hypothesis marker only. It is not used as evidence in the present statistical interpretation.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lr}
+\toprule
+\textbf{Projection statistic} & \textbf{Value} \\
+\midrule
+Real \(h_1\) Arc80 & \(0.017454\) \\
+Altitude-only surrogate mean \(h_1\) Arc80 & \(0.017469\) \\
+Empirical probability surrogate \(\le\) real & \(\projectionp\) \\
+\(\pi-3\) reference & \(\piminusthree\) \\
+Interpretation & \(h_1\) Arc80 explained by altitude projection \\
+\bottomrule
+\end{tabular}
+\caption{Projection explanation of the old \(h_1\) Arc80 corridor. The surrogate preserves packet altitude distribution but randomizes row choice within altitude bins.}
+\label{tab:h1-projection}
+\end{table}
+
+\subsection{Altitude architecture of the packet field}
+
+The packet yield rate is not uniform across altitude. P85 computes
+\[
+Y(B)=\frac{\#\{\text{packets in altitude bin }B\}}
+          {\#\{\text{board rows in altitude bin }B\}},
+\]
+avoiding raw-count bias from changing row density. The yield-rate maps show broad altitude bands of elevated and suppressed packet frequency.
+
+A Gaussian-mixture descriptive summary favors a multi-component model. In the primary run, \(K=4\) is selected by BIC, with a BIC improvement over \(K=1\) of approximately
+\[
+2823.78.
+\]
+This is not interpreted as a theorem that exactly four physical bands exist. It is interpreted as strong descriptive evidence that a single unimodal altitude model is inadequate.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lr}
+\toprule
+\textbf{Altitude-architecture statistic} & \textbf{Value} \\
+\midrule
+Primary packet count & \(\primarypackets\) \\
+Best descriptive GMM \(K\) & \(4\) \\
+BIC improvement \(K=1\) minus best \(K\) & \(2823.78\) \\
+Sub-block microstructure support after macro-block matching & Not supported \\
+Interpretation & Macro-scale terminal altitude architecture \\
+\bottomrule
+\end{tabular}
+\caption{Descriptive altitude-architecture summary.}
+\label{tab:altitude-architecture}
+\end{table}
+
+\subsection{No strong evidence for extra sub-block micro-clustering}
+
+The original P85 block-null statistic was degenerate because the null preserved the same block counts used by the test statistic. P85R repaired this by matching macro-block counts while testing finer micro-bin and nearest-neighbor statistics. The repaired test does not find strong evidence for extra fine-scale clustering beyond the macro altitude architecture.
+
+Representative repaired sub-block \(p\)-values are:
+\[
+p_{\mathrm{Gini}}\approx 0.180,\quad
+p_{\max}\approx 0.315,\quad
+p_{\mathrm{NN,mean}}\approx 0.244,\quad
+p_{\mathrm{NN,median}}\approx 0.353.
+\]
+This simplifies the replacement interpretation: the surviving object is macro-altitude architecture, not confirmed fractal or micro-scale clustering.
+
+\subsection{Tail-polarity altitude asymmetry}
+
+The primary fitted-ratio upper and lower tails are not identical in altitude distribution. In the primary \(\tau=0.995\) fitted-ratio comparison, the two tails have a Kolmogorov--Smirnov-type distance of approximately
+\[
+0.168
+\]
+and a Jensen--Shannon divergence of approximately
+\[
+0.0496.
+\]
+This supports a descriptive tail-polarity asymmetry in altitude. The effect is not stated as a causal thermodynamic mechanism. It is a finite-horizon distributional asymmetry between the two fitted-ratio tails.
+
+\subsection{The modulus-\texorpdfstring{\(1009\)}{1009} row-sector claim fails}
+
+P86 scans all moduli \(M=800,\ldots,1200\). Each permutation null is allowed to scan the same modulus range and record its maximum sector amplitude. Under this search-adjusted null, neither \(M=1009\) nor any real best modulus survives.
+
+Across the four seam-scale windows \(W=900,1000,1100,1300\), the number of configurations in which \(M=1009\) survives the search-adjusted null is
+\[
+0.
+\]
+The number of configurations in which the best real modulus survives the search-adjusted null is also
+\[
+0.
+\]
+Thus the row-sector continuation paper's positive \(M=1009\) interpretation is rejected as a search-hardened discovery.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Window} & \textbf{Best real modulus} & \textbf{Rank of 1009} & \textbf{\(p_{\mathrm{best}}\)} & \textbf{\(p_{1009}\)} \\
+\midrule
+900  & 1133 & 48  & 0.0798 & 1.0000 \\
+1000 & 1087 & 151 & 0.2355 & 1.0000 \\
+1100 & 1133 & 143 & 1.0000 & 1.0000 \\
+1300 & 1022 & 58  & 0.9381 & 1.0000 \\
+\bottomrule
+\end{tabular}
+\caption{Dense modulus validation summary. The search-adjusted null scans \(M=800,\ldots,1200\) on every permutation. Neither \(M=1009\) nor the best real modulus survives.}
+\label{tab:modulus-failure}
+\end{table}
+
+\section{Claim transition ledger}
+
+Table~\ref{tab:claim-transition} summarizes the shift from the earlier preprint interpretation to the present replacement interpretation.
+
+\begin{table}[H]
+\centering
+\small
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{p{0.30\textwidth}p{0.33\textwidth}p{0.30\textwidth}}
+\toprule
+\textbf{Old claim} & \textbf{Validation result} & \textbf{Revised claim} \\
+\midrule
+Extreme compression packets phase-lock to \(h_1\). &
+P83B and P84 reject \(R\) and \(h_1\)-specificity under search-adjusted and coordinate-control nulls. &
+Rejected as a coordinate-specific phase-locking resonance. \\
+\midrule
+The \(h_1\) Arc80 corridor is intrinsically \(h_1\)-specific. &
+P85/P85R show that altitude-only surrogates reproduce the \(h_1\) Arc80 corridor. &
+\(h_1\) Arc80 is a descriptive projection of altitude-localized packet architecture. \\
+\midrule
+The packet object disappears if \(h_1\) fails. &
+P85 shows packet yield-rate maps and multi-component altitude structure. &
+The core object survives as terminal altitude architecture of highly compressed adjacent-spacing packets. \\
+\midrule
+\(M=1009\) is a row-sector engine. &
+P86 dense modulus scan finds no search-adjusted survival. &
+Rejected as a look-elsewhere artifact in sparse tail-sector scanning. \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption{Claim transition ledger from the earlier preprint interpretation to the present replacement interpretation.}
+\label{tab:claim-transition}
+\end{table}
+
+\section{Discussion}
+
+The validation campaign changes the interpretation of the original discovery but does not erase the empirical object. The earlier \(h_1\) analysis detected a real pattern because the packets were not uniformly distributed in altitude. The mistake was to assign the explanatory role to \(h_1\) itself. The revised interpretation is more conservative: \(h_1\) is a projection through which altitude localization became visible.
+
+The modulus-\(1009\) claim fails more completely. Once the null is allowed to search the same dense modulus range, the apparent sector engine disappears into the look-elsewhere envelope. Unlike the \(h_1\) corridor, which is explained as a projection of a surviving altitude architecture, the modulus-\(1009\) interpretation does not currently have a surviving positive replacement. It remains valuable as a methodological warning.
+
+The central surviving result is therefore the altitude architecture of extreme compression packets. This is a finite-horizon empirical structure. It may reflect nonstationarity in the terminal segment, long-range fluctuation in the observed zero sequence, or a more subtle interaction between local spacing tails and altitude. The present paper does not identify a theoretical mechanism for the altitude bands. It establishes that the bands exist in the loaded terminal board and that they explain the earlier \(h_1\) projection.
+
+\subsection{Relation to GUE statistics}
+
+The results do not claim a breakdown of GUE bulk statistics. The packet field lies in the rare-event tail of adjacent spacing behavior. The observation is that the extreme compression packets are not uniformly distributed over the terminal board. This is compatible with bulk GUE-like behavior while still allowing finite-horizon tail architecture.
+
+\subsection{Lessons for empirical number theory}
+
+This study demonstrates a general methodological point. Conditional nulls can be misleading after a large exploratory search. A null that tests a chosen coordinate after the coordinate has already been selected does not address the look-elsewhere effect. For empirical studies of zeta zeros, phase coordinates, modulus scans, and geometric projections should be evaluated using nulls that are allowed to search the same family of alternatives.
+
+\section{Limitations}
+
+The analysis is finite-horizon. The terminal board ends near \(30.610\mathrm{B}\), and no claim is made beyond the loaded source range. The altitude architecture may change, vanish, or sharpen at greater heights.
+
+The packet extractor is empirical. Although it has been stress-tested across nearby thresholds and metrics, it is not derived from a theorem about zeta zeros. The GMM component count is descriptive, not a proof of exactly four physical bands.
+
+The \(h_1\) projection explanation is strong on the observed board, but it does not imply that all future \(h_1\)-like behavior is an artifact. It means the \(h_1\) behavior measured in the present terminal packet field is explained by altitude localization.
+
+The modulus-\(1009\) failure is specific to the tested row-sector pipeline and dense modulus search. It rejects the positive claim made by the continuation paper but does not rule out all possible arithmetic sectorizations under different, pre-specified theoretical frameworks.
+
+\section{Conclusion}
+
+The original \(h_1\) phase-locking interpretation and the \(M=1009\) row-sector interpretation do not survive search-adjusted validation. The surviving structure is a terminal altitude architecture in highly compressed adjacent-spacing packets. The packet field is non-uniform over altitude, has multi-component descriptive structure, and explains the previously observed \(h_1\) Arc80 corridor through altitude projection.
+
+The revised conclusion is therefore narrower but stronger: the terminal band contains a finite-horizon architecture of extreme compression packets, and this architecture can cast misleading shadows in both continuous logarithmic phase coordinates and discrete modulus coordinates. Search-adjusted validation separates the surviving object from its projections.
+
+\appendix
+
+\section{Audit glossary}
+
+\begin{longtable}{p{0.16\textwidth}p{0.78\textwidth}}
+\toprule
+\textbf{Audit} & \textbf{Role} \\
+\midrule
+P83B & Packet-count-matched search-adjusted harmonic benchmark. Demotes \(R\), preserves Arc80 as a statistic requiring coordinate testing. \\
+P84 & Coordinate-specificity audit. Rejects \(h_1\)-specific explanation of the Arc80 corridor. \\
+P85 & Altitude architecture audit. Establishes packet yield-rate altitude structure and shows altitude-only surrogates reproduce \(h_1\) Arc80. \\
+P85R & Cleanup audit. Repairs the degenerate block-null and produces the claim transition ledger. \\
+P86 & Dense modulus search-adjusted null. Rejects \(M=1009\) as a search-hardened sector-engine discovery. \\
+P87 & Packaging scaffold. Consolidates the surviving and rejected claims into this replacement manuscript structure. \\
+\bottomrule
+\end{longtable}
+
+\section{Notation}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{ll}
+\toprule
+\textbf{Symbol} & \textbf{Meaning} \\
+\midrule
+\(\gamma_n\) & ordinate of the \(n\)-th nontrivial zero on the critical line \\
+\(g_n\) & adjacent-zero gap \(\gamma_{n+1}-\gamma_n\) \\
+\(T\) & representative altitude \\
+\(h_m(T)\) & logarithmic harmonic phase coordinate \\
+\(R\) & circular resultant \\
+Arc80 & shortest circular arc covering \(80\%\) of packet phases \\
+\(Y(B)\) & packet yield rate in altitude bin \(B\) \\
+\(\tau\) & row-level tail threshold quantile \\
+\bottomrule
+\end{tabular}
+\caption{Principal notation.}
 \end{table}
 
 \section*{Data and Artifact Availability}
-A timestamped preprint version of this manuscript has been deposited
-under the DOI listed on the title page
-(\href{https://doi.org/\preprintdoi}{\preprintdoi}).
-The associated research package includes the seam-stitched observational
-boards, continuation manifests, audit summaries, frozen packet family
-thresholds, and derived tables referenced in this paper. Zero ordinate
-data are sourced from the LMFDB~\cite{lmfdb} and the Odlyzko zero
-tables~\cite{odlyzko_tables}.
 
-\section*{Author Contributions}
-Jeffery Huckstead conceived the research program, designed the empirical pipeline, executed the computational campaign, analyzed the results, and wrote the manuscript.
+The pre-validation preprint was deposited under DOI
+\href{https://doi.org/\priorpreprintdoi}{\priorpreprintdoi}. The validation campaign generates the replacement claim ledger and manuscript scaffold in the ForgeV16c audit chain, including outputs from P83B, P84, P85, P85R, P86, and P87. The source zero ordinate data are attributed to LMFDB and Odlyzko zero tables \cite{lmfdb,odlyzko_tables}.
 
 \section*{Use of AI Tools}
-Generative AI tools were used for drafting assistance, editorial restructuring, code critique, and adversarial review of claims. All research design decisions, validation strategy, computational execution choices, interpretation, and final manuscript responsibility remain with Jeffery Huckstead.
 
-\section*{Priority Statement}
-This preprint documents the first public release of the seam-stitched
-empirical board, packet-extraction framework, logarithmic harmonic
-analysis, and resolution-ablation results reported herein. A companion
-paper~\cite{huckstead_continuation} reports a structurally distinct
-row-sector rebound structure in the same terminal band and establishes
-its empirical orthogonality to the $h_1$ packet organization identified
-here.
+Generative AI tools were used for drafting assistance, code critique, adversarial claim review, and organization of the validation ledger. All research design decisions, computational execution choices, interpretation, and final manuscript responsibility remain with Jeffery Huckstead.
+
+\section*{Author Contributions}
+
+Jeffery Huckstead conceived the research program, assembled and audited the seam-stitched board, executed the computational validation campaign, interpreted the results, and wrote the manuscript.
 
 \bibliographystyle{plain}
 
@@ -698,12 +541,6 @@ A.~M. Odlyzko,
 \emph{On the distribution of spacings between zeros of the zeta function},
 Math.\ Comp.\ \textbf{48} (1987), no.~177, 273--308.
 
-\bibitem{bogomolny1995}
-E.~B. Bogomolny and J.~P. Keating,
-\emph{Random matrix theory and the Riemann zeros I: three- and four-point
-correlations},
-Nonlinearity \textbf{8} (1995), no.~6, 1115--1131.
-
 \bibitem{mehta2004}
 M.~L. Mehta,
 \emph{Random Matrices},
@@ -718,20 +555,14 @@ Cambridge Univ.\ Press, Cambridge, 2005, pp.~425--506.
 
 \bibitem{lmfdb}
 The LMFDB Collaboration,
-\emph{The $L$-functions and Modular Forms Database},
-\url{https://www.lmfdb.org}, 2024.
+\emph{The \(L\)-functions and Modular Forms Database},
+\url{https://www.lmfdb.org}, accessed 2024--2026.
 
 \bibitem{odlyzko_tables}
 A.~M. Odlyzko,
 \emph{Tables of zeros of the Riemann zeta function},
 available at \url{http://www.dtc.umn.edu/~odlyzko/zeta_tables/},
 accessed 2024--2026.
-
-\bibitem{huckstead_continuation}
-J.~Huckstead,
-\emph{Orthogonal Row-Sector Rebound Dynamics in Terminal Zeta-Zero
-Spacing Residuals},
-preprint, 2026. [https://doi.org/10.5281/zenodo.20011657]
 
 \end{thebibliography}
 

@@ -178,7 +178,9 @@ the principal paper,
 \texttt{df\_master\_terminal\_checkpoint\_v16c\_8000\_31p5B.parquet},
 \end{center}
 containing $935{,}111$ rows with altitude range approximately
-$28{,}499.5\mathrm{M}$ to $30{,}610.0\mathrm{M}$. Throughout this
+$28{,}499.5\mathrm{M}$ to $30{,}610.0\mathrm{M}$. The seam-stitching
+preserves adjacent-gap continuity across source shard boundaries, so
+cross-boundary gaps are retained rather than discarded. Throughout this
 paper, all claims are empirical claims on this observed terminal horizon
 unless explicitly stated otherwise.
 
@@ -248,8 +250,8 @@ tested, stride modes, local $h_1$ bin counts, P78 cell-count floors,
 and the literal-claim matrix rule. In particular, P78 uses a minimum
 mean cell-count floor of $15$ and a minimum cell count of $5$ when
 interpreting interaction ratios. These parameters are recorded in the
-patched frozen parameter registry and P79B manifest (timestamp
-\texttt{\p79btimestamp}) before final paper-language assignment.
+patched frozen parameter registry and P79B manifest before final
+paper-language assignment.
 
 %--------------------------------------------------------------------
 \section{Audit Chain}
@@ -523,7 +525,7 @@ cannot detect.
 
 All continuation claims are confined to the observed terminal band.
 The row-sector structure and the $h_1$ orthogonality result are
-empirical laws on this observed horizon. No asymptotic extension is
+empirical findings on this observed horizon. No asymptotic extension is
 claimed.
 
 \subsection{Post-Freeze Closure Audits}
@@ -597,16 +599,25 @@ All audit outputs, manifests, the frozen parameter registry, the
 literal claim evidence matrix, and the hardened safe-language document
 are archived in the associated artifact bundle under
 \texttt{ForgeV16c\_P79B\_LEDGER\_HYGIENE\_outputs}, with timestamps as
-recorded in the P79B manifest . The master
+recorded in the P79B manifest (\texttt{20260503\_171151}). The master
 parquet and seam-stitched board are as described in the principal
 paper~\cite{huckstead_h1_principal}.
 
 Post-freeze closure artifacts are archived in:
 \newline
-\texttt{ForgeV16c\_P82\_CLOSURE\_outputs}, including
-\texttt{p82\_final\_closure\_\p82timestamp\_manifest.json}, the terminal
-parquet provenance record with SHA-256 checksum, frozen-claims registry, and audit provenance
-chain. P81 crossover outputs are archived in
+\texttt{ForgeV16c\_P82\_CLOSURE\_outputs},
+\newline
+including:
+\newline
+\texttt{p82\_final\_closure\_20260503\_233804\_manifest.json},
+\newline
+the terminal parquet provenance record with SHA-256 checksum:
+\newline
+\texttt{\terminalsha},
+\newline
+frozen-claims registry, and audit provenance
+chain. P81 crossover outputs are archived in:
+\newline
 \texttt{ForgeV16c\_P81\_CROSSOVER\_outputs} with verdict
 \texttt{CROSSOVER\_NOT\_REPRODUCED}.
 
